@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellForPlayer" rowHeight="50" id="KGk-i7-Jjw" customClass="PlayerInformationCellTableViewCell" customModule="FiveSeconds" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="42"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="250" height="41.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="STv-RR-Jas">
+                        <rect key="frame" x="42" y="0.0" width="208" height="42"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="ygM-t8-QFS"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FDC-NT-Ddq">
+                        <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="DSs-g3-oZs"/>
+                            <constraint firstAttribute="width" constant="42" id="vU2-Ar-wCC"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="FDC-NT-Ddq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="A5D-mX-iSu"/>
+                    <constraint firstItem="STv-RR-Jas" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="UpN-RT-ZqE"/>
+                    <constraint firstItem="STv-RR-Jas" firstAttribute="leading" secondItem="FDC-NT-Ddq" secondAttribute="trailing" id="XpQ-SW-gTF"/>
+                    <constraint firstItem="FDC-NT-Ddq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Xrx-Pq-S2H"/>
+                    <constraint firstAttribute="trailing" secondItem="STv-RR-Jas" secondAttribute="trailing" id="ua3-6c-R7h"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="txtPlayerName" destination="STv-RR-Jas" id="gUe-wO-UCr"/>
+                <outlet property="usrImgView" destination="FDC-NT-Ddq" id="SWv-js-F7a"/>
+            </connections>
+            <point key="canvasLocation" x="19" y="48"/>
+        </tableViewCell>
+    </objects>
+</document>

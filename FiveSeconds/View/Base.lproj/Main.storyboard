@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Regular.otf">
+            <string>SFProDisplay-Regular</string>
+        </array>
+        <array key="SF-Pro-Display-Semibold.otf">
+            <string>SFProDisplay-Semibold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--WelcomeScreen-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="WelcomeScreen" customClass="WelcomeViewController" customModule="FiveSeconds" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="StartView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uo6-Qv-rWG" userLabel="TopContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="193.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stopwatch" translatesAutoresizingMaskIntoConstraints="NO" id="3Jj-Sc-376">
+                                        <rect key="frame" x="81" y="29" width="158" height="136"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3Jj-Sc-376" firstAttribute="leading" secondItem="uo6-Qv-rWG" secondAttribute="leading" constant="81" id="0oX-90-O2Z"/>
+                                    <constraint firstItem="3Jj-Sc-376" firstAttribute="top" secondItem="uo6-Qv-rWG" secondAttribute="top" constant="29" id="Q7S-6q-1oC"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Jj-Sc-376" secondAttribute="bottom" constant="28.5" id="tXz-uJ-3ah"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Jj-Sc-376" secondAttribute="trailing" constant="81" id="w4q-UJ-5ZI"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iXB-3r-YwC" userLabel="ButtonStaks">
+                                <rect key="frame" x="107.5" y="193.5" width="105" height="181"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ioa-di-9bk" customClass="RoundedButton" customModule="FiveSeconds" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="47"/>
+                                        <color key="backgroundColor" red="0.43950006365776062" green="0.48573136329650879" blue="0.57681012153625488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="20"/>
+                                        <state key="normal" title="Soru Yaz">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnWriteQuestion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yfr-T8-RW3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VH6-OC-bBB" customClass="RoundedButton" customModule="FiveSeconds">
+                                        <rect key="frame" x="0.0" y="67" width="105" height="47"/>
+                                        <color key="backgroundColor" red="0.23539169132709503" green="0.11543873697519302" blue="0.25115793943405151" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="40"/>
+                                        <state key="normal" title="Oyna">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnPlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NTB-Bh-f8Y"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN1-nW-AbZ" customClass="RoundedButton" customModule="FiveSeconds" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="134" width="105" height="47"/>
+                                        <color key="backgroundColor" red="0.57380741830000004" green="0.56553578380000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="20"/>
+                                        <state key="normal" title="Kurallar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnRules:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R2g-Ue-LaG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="BYl-QW-9VY"/>
+                                    <constraint firstAttribute="height" constant="181" id="aja-aD-lLc"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w94-0Y-xIE" userLabel="BottomContainer">
+                                <rect key="frame" x="0.0" y="374.5" width="320" height="193.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9T-4a-Egs" customClass="RoundedButton" customModule="FiveSeconds" customModuleProvider="target">
+                                        <rect key="frame" x="68" y="76" width="185" height="42"/>
+                                        <color key="backgroundColor" red="0.2418571412563324" green="0.17698898911476135" blue="0.1230514720082283" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="185" id="JRq-ib-gIM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="25"/>
+                                        <state key="normal" title="Bize Haber Ver">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnContactUs:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DNy-kl-WMD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="T9T-4a-Egs" firstAttribute="centerY" secondItem="w94-0Y-xIE" secondAttribute="centerY" id="Gda-Uq-NKx"/>
+                                    <constraint firstItem="T9T-4a-Egs" firstAttribute="centerX" secondItem="w94-0Y-xIE" secondAttribute="centerX" id="JSC-VE-lSu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85262101888656616" green="0.42218321561813354" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="w94-0Y-xIE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0jq-Wb-3MO"/>
+                            <constraint firstItem="iXB-3r-YwC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5kp-T6-Yia"/>
+                            <constraint firstItem="w94-0Y-xIE" firstAttribute="top" secondItem="iXB-3r-YwC" secondAttribute="bottom" id="AAS-4o-bxZ"/>
+                            <constraint firstItem="uo6-Qv-rWG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OE0-Q0-VzX"/>
+                            <constraint firstAttribute="trailing" secondItem="w94-0Y-xIE" secondAttribute="trailing" id="W70-Sl-XPA"/>
+                            <constraint firstItem="iXB-3r-YwC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f5c-Fv-MWD"/>
+                            <constraint firstAttribute="bottom" secondItem="w94-0Y-xIE" secondAttribute="bottom" id="pIq-Eb-98E"/>
+                            <constraint firstAttribute="trailing" secondItem="uo6-Qv-rWG" secondAttribute="trailing" id="wWE-nY-NAe"/>
+                            <constraint firstItem="iXB-3r-YwC" firstAttribute="top" secondItem="uo6-Qv-rWG" secondAttribute="bottom" id="ygr-vq-5tZ"/>
+                            <constraint firstItem="uo6-Qv-rWG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zK9-4d-apg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <segue destination="8LD-7V-Q9N" kind="show" identifier="setForPlay" id="oe7-6T-1qd"/>
+                        <segue destination="OqR-IE-fVP" kind="show" identifier="writeQuestion" id="Fhu-h0-U9f"/>
+                        <segue destination="3bK-H0-s4L" kind="show" identifier="rulesPage" id="PA5-Jt-ZT1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="22" y="36"/>
+        </scene>
+        <!--Write Question-->
+        <scene sceneID="AfO-jg-x7d">
+            <objects>
+                <viewController id="OqR-IE-fVP" userLabel="Write Question" customClass="WriteQuestionViewController" customModule="FiveSeconds" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oLR-Re-YY7" userLabel="QuestionView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorunu bizimle paylaş" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFA-ZD-CoL">
+                                <rect key="frame" x="40" y="55" width="240" height="30"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="szy-QZ-e9Z">
+                                <rect key="frame" x="23.5" y="123" width="273" height="148"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lz-w5-b6f" customClass="RoundedButton" customModule="FiveSeconds" customModuleProvider="target">
+                                <rect key="frame" x="188" y="324" width="109" height="51"/>
+                                <color key="backgroundColor" red="0.31461727619171143" green="0.10789559781551361" blue="0.092863738536834717" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="109" id="WOX-iS-12C"/>
+                                    <constraint firstAttribute="height" constant="51" id="d6j-oZ-zNS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="20"/>
+                                <state key="normal" title="Gönder">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSend:" destination="OqR-IE-fVP" eventType="touchUpInside" id="0Ft-aS-21Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PB9-3O-qOQ" customClass="RoundedButton" customModule="FiveSeconds" customModuleProvider="target">
+                                <rect key="frame" x="24" y="324" width="81" height="51"/>
+                                <color key="backgroundColor" red="0.1911550909280777" green="0.6378670334815979" blue="0.26147949695587158" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="81" id="iNo-35-7G5"/>
+                                    <constraint firstAttribute="height" constant="51" id="nO3-hZ-QPA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="20"/>
+                                <state key="normal" title="Geri">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnBack:" destination="OqR-IE-fVP" eventType="touchUpInside" id="PtS-5Z-Diu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85262101888656616" green="0.42218321561813354" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="PB9-3O-qOQ" firstAttribute="leading" secondItem="jJC-Nc-zI8" secondAttribute="leading" constant="24" id="7mI-qJ-Klc"/>
+                            <constraint firstItem="jJC-Nc-zI8" firstAttribute="bottom" secondItem="PB9-3O-qOQ" secondAttribute="bottom" constant="193" id="9Tv-fU-fMD"/>
+                            <constraint firstItem="szy-QZ-e9Z" firstAttribute="top" secondItem="oFA-ZD-CoL" secondAttribute="bottom" constant="38" id="Dcu-de-gZP"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="5lz-w5-b6f" secondAttribute="bottom" constant="193" id="Hn5-vl-ygN"/>
+                            <constraint firstItem="PB9-3O-qOQ" firstAttribute="top" secondItem="szy-QZ-e9Z" secondAttribute="bottom" constant="53" id="M7Y-Ze-17X"/>
+                            <constraint firstItem="jJC-Nc-zI8" firstAttribute="trailing" secondItem="szy-QZ-e9Z" secondAttribute="trailing" constant="23.5" id="PmF-jL-S6x"/>
+                            <constraint firstItem="szy-QZ-e9Z" firstAttribute="centerX" secondItem="oLR-Re-YY7" secondAttribute="centerX" id="RLc-RE-Gvo"/>
+                            <constraint firstItem="oFA-ZD-CoL" firstAttribute="top" secondItem="oLR-Re-YY7" secondAttribute="topMargin" constant="35" id="cQ3-xo-xfO"/>
+                            <constraint firstItem="jJC-Nc-zI8" firstAttribute="trailing" secondItem="5lz-w5-b6f" secondAttribute="trailing" constant="23" id="sco-eT-rFm"/>
+                            <constraint firstItem="szy-QZ-e9Z" firstAttribute="leading" secondItem="jJC-Nc-zI8" secondAttribute="leading" constant="23.5" id="t9X-fa-nnt"/>
+                            <constraint firstItem="oFA-ZD-CoL" firstAttribute="centerX" secondItem="oLR-Re-YY7" secondAttribute="centerX" id="wiU-j3-Uv4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jJC-Nc-zI8"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtCustomQuestion" destination="szy-QZ-e9Z" id="6Lu-lP-fAN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CcT-WN-daT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.125" y="-694.0140845070423"/>
+        </scene>
+        <!--Number of Player-->
+        <scene sceneID="923-1z-7xb">
+            <objects>
+                <viewController id="8LD-7V-Q9N" userLabel="Number of Player" customClass="NumberOfPlayerViewController" customModule="FiveSeconds" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gfp-Yb-cQG" userLabel="PreparingView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIe-1N-Yne" userLabel="TopContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zVK-0W-8si">
+                                        <rect key="frame" x="108" y="104.5" width="105" height="75"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="105" id="2RJ-f6-1qa"/>
+                                            <constraint firstAttribute="height" constant="75" id="J4g-Jj-lFC"/>
+                                        </constraints>
+                                        <attributedString key="attributedText"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kaç kişi oynayacaksınız ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Li-Ay-m0Q">
+                                        <rect key="frame" x="20" y="62.5" width="276" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30.5" id="9Ji-jJ-0il"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="G45-rM-OXD">
+                                        <rect key="frame" x="28" y="201.5" width="265" height="51"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hX4-9l-emY" customClass="RoundedButton" customModule="FiveSeconds" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="81" height="51"/>
+                                                <color key="backgroundColor" red="0.16821733117103577" green="0.30624192953109741" blue="0.18358390033245087" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="51" id="NiO-Ut-plK"/>
+                                                    <constraint firstAttribute="width" constant="81" id="hcG-Dk-xG1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="25"/>
+                                                <state key="normal" title="Geri">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnBack:" destination="8LD-7V-Q9N" eventType="touchUpInside" id="K9J-MW-ZrW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95O-f1-pdg" customClass="RoundedButton" customModule="FiveSeconds">
+                                                <rect key="frame" x="156" y="0.0" width="109" height="51"/>
+                                                <color key="backgroundColor" red="0.25005361437797546" green="0.30566063523292542" blue="0.58369332551956177" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="109" id="d3N-gG-aI9"/>
+                                                    <constraint firstAttribute="height" constant="51" id="iBK-5l-Ol1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="25"/>
+                                                <state key="normal" title="Devam">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnCont:" destination="8LD-7V-Q9N" eventType="touchUpInside" id="O39-CT-nw8"/>
+                                                    <segue destination="uze-8x-CEI" kind="show" identifier="gameScreen" id="cKV-OU-gsP"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="95O-f1-pdg" secondAttribute="bottom" id="4GH-pm-Y8F"/>
+                                            <constraint firstItem="hX4-9l-emY" firstAttribute="top" secondItem="G45-rM-OXD" secondAttribute="top" id="Fkc-EZ-Wiy"/>
+                                            <constraint firstItem="95O-f1-pdg" firstAttribute="top" secondItem="G45-rM-OXD" secondAttribute="top" id="Pwf-8u-VIb"/>
+                                            <constraint firstAttribute="trailing" secondItem="95O-f1-pdg" secondAttribute="trailing" id="Tod-1p-qho"/>
+                                            <constraint firstAttribute="bottom" secondItem="hX4-9l-emY" secondAttribute="bottom" id="U3P-t3-sLG"/>
+                                            <constraint firstItem="hX4-9l-emY" firstAttribute="leading" secondItem="G45-rM-OXD" secondAttribute="leading" id="VY3-FH-6Np"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85262101888656616" green="0.42218321561813354" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="0Li-Ay-m0Q" secondAttribute="trailing" constant="24" id="6LI-J4-rIz"/>
+                                    <constraint firstItem="zVK-0W-8si" firstAttribute="centerY" secondItem="dIe-1N-Yne" secondAttribute="centerY" id="F6G-cM-CQz"/>
+                                    <constraint firstItem="G45-rM-OXD" firstAttribute="centerX" secondItem="zVK-0W-8si" secondAttribute="centerX" id="KTf-uk-8LD"/>
+                                    <constraint firstItem="0Li-Ay-m0Q" firstAttribute="leading" secondItem="dIe-1N-Yne" secondAttribute="leading" constant="20" id="LlC-mc-pXa"/>
+                                    <constraint firstItem="zVK-0W-8si" firstAttribute="centerX" secondItem="dIe-1N-Yne" secondAttribute="centerX" id="Q6X-oL-vjs"/>
+                                    <constraint firstItem="zVK-0W-8si" firstAttribute="top" secondItem="0Li-Ay-m0Q" secondAttribute="bottom" constant="11" id="RSl-Hi-5zg"/>
+                                    <constraint firstItem="G45-rM-OXD" firstAttribute="top" secondItem="zVK-0W-8si" secondAttribute="bottom" constant="22" id="vQe-R3-0Hb"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5X-GC-nEQ" userLabel="NumPadContainer">
+                                <rect key="frame" x="0.0" y="284" width="320" height="284"/>
+                                <color key="backgroundColor" red="0.85262101889999997" green="0.42218321559999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85262101889999997" green="0.42218321559999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="t5X-GC-nEQ" secondAttribute="trailing" id="BAo-QW-Ghl"/>
+                            <constraint firstItem="dIe-1N-Yne" firstAttribute="top" secondItem="Gfp-Yb-cQG" secondAttribute="top" id="DHd-xR-RDO"/>
+                            <constraint firstItem="t5X-GC-nEQ" firstAttribute="top" secondItem="dIe-1N-Yne" secondAttribute="bottom" id="F7P-mh-jvu"/>
+                            <constraint firstItem="t5X-GC-nEQ" firstAttribute="leading" secondItem="Gfp-Yb-cQG" secondAttribute="leading" id="GBc-qt-zS8"/>
+                            <constraint firstItem="dIe-1N-Yne" firstAttribute="leading" secondItem="Gfp-Yb-cQG" secondAttribute="leading" id="S2V-te-nTJ"/>
+                            <constraint firstItem="t5X-GC-nEQ" firstAttribute="height" secondItem="dIe-1N-Yne" secondAttribute="height" id="bmN-rt-F9c"/>
+                            <constraint firstAttribute="bottom" secondItem="t5X-GC-nEQ" secondAttribute="bottom" id="qDJ-Z0-5oH"/>
+                            <constraint firstAttribute="trailing" secondItem="dIe-1N-Yne" secondAttribute="trailing" id="zNw-Et-Vei"/>
+                            <constraint firstItem="t5X-GC-nEQ" firstAttribute="top" secondItem="dIe-1N-Yne" secondAttribute="bottom" id="zeC-dJ-WQz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0pW-cI-Z91"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtPlayerCount" destination="zVK-0W-8si" id="XnE-O9-eMG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K0K-Ea-1Uv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="918.75" y="35.91549295774648"/>
+        </scene>
+        <!--Game Screen-->
+        <scene sceneID="gRe-hx-JQq">
+            <objects>
+                <viewController id="uze-8x-CEI" userLabel="Game Screen" customClass="GameScreenViewController" customModule="FiveSeconds" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ny5-l4-DAP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oyuncu isimleri giriniz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hf-6a-0bQ">
+                                <rect key="frame" x="22" y="74" width="276" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="276" id="6w6-wY-TLr"/>
+                                    <constraint firstAttribute="height" constant="30" id="nlv-r9-ZL3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwh-Kd-3Yt" customClass="RoundedButton" customModule="FiveSeconds" customModuleProvider="target">
+                                <rect key="frame" x="22" y="465" width="59" height="51"/>
+                                <color key="backgroundColor" red="0.66902792453765869" green="0.73128575086593628" blue="0.94889926910400391" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="5Vr-JO-VLh"/>
+                                    <constraint firstAttribute="height" constant="51" id="nh0-Xu-Gal"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="20"/>
+                                <state key="normal" title="Geri">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnBack:" destination="uze-8x-CEI" eventType="touchUpInside" id="T4z-pz-yYg"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R1R-rw-TEB">
+                                <rect key="frame" x="22" y="112" width="276" height="338"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbx-Nr-7H5" customClass="RoundedButton" customModule="FiveSeconds" customModuleProvider="target">
+                                <rect key="frame" x="228" y="465" width="70" height="51"/>
+                                <color key="backgroundColor" red="0.2418571412563324" green="0.17698898911476135" blue="0.1230514720082283" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="VJY-gT-BK5"/>
+                                    <constraint firstAttribute="width" constant="70" id="caE-6M-YKa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="20"/>
+                                <state key="normal" title="BAŞLA">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnStart:" destination="uze-8x-CEI" eventType="touchUpInside" id="Tel-2e-CNz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85262101888656616" green="0.42218321561813354" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hwh-Kd-3Yt" firstAttribute="top" secondItem="R1R-rw-TEB" secondAttribute="bottom" constant="15" id="0A4-ft-Yfj"/>
+                            <constraint firstItem="R1R-rw-TEB" firstAttribute="centerX" secondItem="ny5-l4-DAP" secondAttribute="centerX" id="3kc-Gc-Agu"/>
+                            <constraint firstItem="hUW-Jb-JIy" firstAttribute="trailing" secondItem="R1R-rw-TEB" secondAttribute="trailing" constant="22" id="5h7-WM-eiW"/>
+                            <constraint firstItem="hUW-Jb-JIy" firstAttribute="trailing" secondItem="xbx-Nr-7H5" secondAttribute="trailing" constant="22" id="Ehd-Ac-1j6"/>
+                            <constraint firstItem="hUW-Jb-JIy" firstAttribute="bottom" secondItem="R1R-rw-TEB" secondAttribute="bottom" constant="118" id="Jpb-aE-3Bl"/>
+                            <constraint firstItem="xbx-Nr-7H5" firstAttribute="top" secondItem="R1R-rw-TEB" secondAttribute="bottom" constant="15" id="QMy-4O-rAn"/>
+                            <constraint firstItem="R1R-rw-TEB" firstAttribute="top" secondItem="2hf-6a-0bQ" secondAttribute="bottom" constant="8" id="Ye9-JT-HXh"/>
+                            <constraint firstItem="2hf-6a-0bQ" firstAttribute="centerX" secondItem="ny5-l4-DAP" secondAttribute="centerX" id="dwA-Mj-nsn"/>
+                            <constraint firstItem="R1R-rw-TEB" firstAttribute="leading" secondItem="hUW-Jb-JIy" secondAttribute="leading" constant="22" id="gqZ-Xc-hYm"/>
+                            <constraint firstItem="Hwh-Kd-3Yt" firstAttribute="leading" secondItem="hUW-Jb-JIy" secondAttribute="leading" constant="22" id="nH1-IF-ODJ"/>
+                            <constraint firstItem="2hf-6a-0bQ" firstAttribute="top" secondItem="hUW-Jb-JIy" secondAttribute="top" constant="54" id="ys4-o4-xnf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hUW-Jb-JIy"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblForOrientation" destination="2hf-6a-0bQ" id="MTk-Ym-R5o"/>
+                        <outlet property="tblPlayerNames" destination="R1R-rw-TEB" id="Tiq-0C-TaN"/>
+                        <segue destination="jSv-nW-n3a" kind="show" identifier="mainGameScreen" id="zZO-hv-QUF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6pr-NR-rGK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1906.875" y="34.859154929577464"/>
+        </scene>
+        <!--Main Game Screen View Controller-->
+        <scene sceneID="LIh-iA-Hii">
+            <objects>
+                <viewController id="jSv-nW-n3a" customClass="MainGameScreenViewController" customModule="FiveSeconds" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yeu-lH-zZi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cta-PB-AgE" customClass="RoundedButton" customModule="FiveSeconds" customModuleProvider="target">
+                                <rect key="frame" x="56" y="469" width="81" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.25005361440000001" green="0.30566063519999997" blue="0.58369332549999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="25"/>
+                                <state key="normal" title="Geri">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnBack:" destination="jSv-nW-n3a" eventType="touchUpInside" id="R8j-lF-Guu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtQ-mX-3Xl">
+                                <rect key="frame" x="135" y="359" width="50" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="30"/>
+                                <color key="textColor" red="0.11181893199682236" green="0.1118365004658699" blue="0.1118125319480896" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4v-4e-ovm" customClass="RoundedButton" customModule="FiveSeconds">
+                                <rect key="frame" x="191" y="454" width="92" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.16821733119999999" green="0.30624192950000001" blue="0.18358390029999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="30"/>
+                                <state key="normal" title="Başla">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnStart:" destination="jSv-nW-n3a" eventType="touchUpInside" id="g6D-D8-mDv"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iwg-V7-eoA">
+                                <rect key="frame" x="65" y="420" width="195" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fX-uA-y6u">
+                                <rect key="frame" x="25" y="157" width="274" height="194"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.23539169130000001" green="0.115438737" blue="0.25115793939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sıra .... kişisinde" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mug-Ah-w46">
+                                <rect key="frame" x="63" y="112" width="194" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85262101888656616" green="0.42218321561813354" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="EQl-6L-iNX"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblTimeShow" destination="EtQ-mX-3Xl" id="wcJ-dW-E1e"/>
+                        <outlet property="progressView" destination="iwg-V7-eoA" id="1CI-7A-tvI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1gT-dY-aff" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2752.5" y="33.802816901408448"/>
+        </scene>
+        <!--Rules View Controller-->
+        <scene sceneID="DiK-3O-wp6">
+            <objects>
+                <viewController id="3bK-H0-s4L" customClass="RulesViewController" customModule="FiveSeconds" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Ov-XK-Eg8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bEG-xl-FPs">
+                                <rect key="frame" x="16" y="32" width="288" height="387"/>
+                                <string key="text">Oyunun Amacı
+Sorulan sorulara doğru cevaplar vererek bitiş noktasına ilk ulaşan olmak.
+
+Nasıl oynanır
+1. Telefonu elinde tutan oyuncu kartı açar soruyu sorduktan sonra başla düğmesine basar.
+2. Diğer oyuncu süre bitene kadar doğru cevabı vermlidir. Cevabın doğruluğu soruyu soran oyuncu(lar) tarafından karar verilir.
+3. Eğer doğru cevap verirse, oyuncunun piyonu bir adım ilerler.
+4. Oyun sırası diğer oyuncuya geçer ve oyun bitene kadar böye gider.
+
+İpucu: Eğer sormak istemediğiniz bir soru olursa kaydırarak diğer soruya geçebilirsiniz.
+</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVN-Rv-HXR" customClass="RoundedButton" customModule="FiveSeconds" customModuleProvider="target">
+                                <rect key="frame" x="16" y="439" width="60" height="45"/>
+                                <color key="backgroundColor" red="0.67455112934112549" green="0.15692374110221863" blue="0.10914970934391022" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="27"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnBack:" destination="3bK-H0-s4L" eventType="touchUpInside" id="ght-33-DL2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85262101889999997" green="0.42218321559999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="bEG-xl-FPs" firstAttribute="top" secondItem="AW0-LC-qFj" secondAttribute="top" constant="12" id="Ece-rC-9A1"/>
+                            <constraint firstItem="bEG-xl-FPs" firstAttribute="leading" secondItem="4Ov-XK-Eg8" secondAttribute="leadingMargin" id="FBa-7O-xmu"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="bEG-xl-FPs" secondAttribute="bottom" constant="149" id="RCJ-DC-KXR"/>
+                            <constraint firstItem="XVN-Rv-HXR" firstAttribute="leading" secondItem="4Ov-XK-Eg8" secondAttribute="leadingMargin" id="bT3-VG-JkF"/>
+                            <constraint firstItem="AW0-LC-qFj" firstAttribute="trailing" secondItem="XVN-Rv-HXR" secondAttribute="trailing" constant="244" id="bao-rW-SPQ"/>
+                            <constraint firstItem="bEG-xl-FPs" firstAttribute="trailing" secondItem="4Ov-XK-Eg8" secondAttribute="trailingMargin" id="duC-MQ-Uec"/>
+                            <constraint firstItem="XVN-Rv-HXR" firstAttribute="top" secondItem="bEG-xl-FPs" secondAttribute="bottom" constant="20" id="euZ-as-iFM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AW0-LC-qFj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uwf-wG-zxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21.739130434782609" y="919.56521739130437"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="stopwatch" width="256" height="256"/>
+    </resources>
+</document>
