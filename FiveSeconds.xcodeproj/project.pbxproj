@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		BB07E7C420E0388D00176CA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB07E7C320E0388D00176CA0 /* GoogleService-Info.plist */; };
 		BB37B95520E2514300453ACA /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB37B95420E2514300453ACA /* RulesViewController.swift */; };
-		BB38F20520F49FCF00123B51 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB38F20320F49FCF00123B51 /* DataModel.xcdatamodeld */; };
+		BB38F20720F56F6F00123B51 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB38F20620F56F6F00123B51 /* Question.swift */; };
 		BB3F8E2E20E523AA000303A3 /* MainGameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F8E2D20E523AA000303A3 /* MainGameScreenViewController.swift */; };
 		BB4201B420DB9C37003146AD /* NumberOfPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4201B320DB9C37003146AD /* NumberOfPlayerViewController.swift */; };
 		BB4201B620DBA513003146AD /* WriteQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4201B520DBA513003146AD /* WriteQuestionViewController.swift */; };
@@ -39,7 +39,7 @@
 		BB07E7A420E0123100176CA0 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		BB07E7C320E0388D00176CA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BB37B95420E2514300453ACA /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
-		BB38F20420F49FCF00123B51 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		BB38F20620F56F6F00123B51 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		BB3F8E2D20E523AA000303A3 /* MainGameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameScreenViewController.swift; sourceTree = "<group>"; };
 		BB4201B320DB9C37003146AD /* NumberOfPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfPlayerViewController.swift; sourceTree = "<group>"; };
 		BB4201B520DBA513003146AD /* WriteQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteQuestionViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				BBA0E0AB20EF58E30003BA79 /* Player.swift */,
-				BB38F20320F49FCF00123B51 /* DataModel.xcdatamodeld */,
+				BB38F20620F56F6F00123B51 /* Question.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,9 +329,9 @@
 				BBEA061C20DB291200C1565B /* RoundedButton.swift in Sources */,
 				BB4201B620DBA513003146AD /* WriteQuestionViewController.swift in Sources */,
 				BB37B95520E2514300453ACA /* RulesViewController.swift in Sources */,
+				BB38F20720F56F6F00123B51 /* Question.swift in Sources */,
 				BB63E37520DA420D00761E3A /* AppDelegate.swift in Sources */,
 				BBB26E7A20EBDF23000D9E58 /* DesignableTextField.swift in Sources */,
-				BB38F20520F49FCF00123B51 /* DataModel.xcdatamodeld in Sources */,
 				BB4201B420DB9C37003146AD /* NumberOfPlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,19 +537,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		BB38F20320F49FCF00123B51 /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				BB38F20420F49FCF00123B51 /* DataModel.xcdatamodel */,
-			);
-			currentVersion = BB38F20420F49FCF00123B51 /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = BB63E36920DA420D00761E3A /* Project object */;
 }

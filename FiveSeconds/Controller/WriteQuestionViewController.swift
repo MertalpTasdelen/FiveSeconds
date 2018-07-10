@@ -8,12 +8,14 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class WriteQuestionViewController: UIViewController, UITextViewDelegate{
     
     // variables and declarations here
 //    let DBRef = Database.database().reference().child("questions")
     var numOfChilds: [Int] = []
+    let question
     
     
     @IBOutlet weak var txtCustomQuestion: UITextView!
@@ -66,19 +68,16 @@ class WriteQuestionViewController: UIViewController, UITextViewDelegate{
 //        }
     }
     
-//    func questionNumber() -> Int {
+    //MARK: Save the question
     
-//        DBRef.observe(.value) { (snapshot) in
-//            for child in snapshot.children{
-//                let snap = child as! DataSnapshot
-//                let key = snap.key
-//
-//                self.numOfChilds.append(Int(key)!)
-//            }
-//        }
-//
-//        return numOfChilds.count
-//    }
+    func save(question: Question){
+        do {
+            try <#throwing expression#>
+        } catch <#pattern#> {
+            <#statements#>
+        }
+        
+    }
     
 
     

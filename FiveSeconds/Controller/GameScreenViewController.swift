@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import ChameleonFramework
+import RealmSwift
 
 
 class GameScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, PlayerInformationCellTableViewCellDelegate {
@@ -66,8 +67,8 @@ class GameScreenViewController: UIViewController, UITableViewDelegate, UITableVi
 //        guard let enteredName = tblPlayerNames.indexPath(for: sender) else {return}
        
 //        print(sender.txtPlayerName.text!)
-        var playerUnknown = Player(name: sender.txtPlayerName.text!, point: 0)
-        tempPlayers.append(playerUnknown)
+        //var playerUnknown = Player(name: sender.txtPlayerName.text!, point: 0)
+        //tempPlayers.append(playerUnknown)
         
     }
     
@@ -88,8 +89,7 @@ class GameScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             //After this declaration we can use the MainGameScreenViewController variables in this screen!!!!
 
         }
-        
-        
     }
+    
     
 }

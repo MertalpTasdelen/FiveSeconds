@@ -8,13 +8,10 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-class Player {
-    var name: String
-    var point: Int
-    
-    init(name: String, point: Int) {
-        self.name = name
-        self.point = 0
-    }
+class Player: Object {
+    @objc dynamic var name: String = ""
+    @objc dynamic var point: Int = 0
+//    let askedQuestions = List<Question>()
 }
