@@ -6,12 +6,8 @@ target 'FiveSeconds' do
 
 
   # Pods for FiveSeconds
-  pod 'Firebase/Core'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Database'
   pod 'SVProgressHUD'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
-  pod 'SwiftyJSON', '~> 4.0'
 
 
 end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BB07E7C420E0388D00176CA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB07E7C320E0388D00176CA0 /* GoogleService-Info.plist */; };
 		BB37B95520E2514300453ACA /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB37B95420E2514300453ACA /* RulesViewController.swift */; };
+		BB38F20520F49FCF00123B51 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB38F20320F49FCF00123B51 /* DataModel.xcdatamodeld */; };
 		BB3F8E2E20E523AA000303A3 /* MainGameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F8E2D20E523AA000303A3 /* MainGameScreenViewController.swift */; };
 		BB4201B420DB9C37003146AD /* NumberOfPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4201B320DB9C37003146AD /* NumberOfPlayerViewController.swift */; };
 		BB4201B620DBA513003146AD /* WriteQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4201B520DBA513003146AD /* WriteQuestionViewController.swift */; };
@@ -21,7 +22,6 @@
 		BB63E37F20DA420E00761E3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB63E37D20DA420E00761E3A /* LaunchScreen.storyboard */; };
 		BB70EF7620DCF5250079CF62 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70EF7520DCF5250079CF62 /* GameScreenViewController.swift */; };
 		BBA0E0AC20EF58E30003BA79 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA0E0AB20EF58E30003BA79 /* Player.swift */; };
-		BBB037E520DEED2D006DB77B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB037E420DEED2D006DB77B /* Question.swift */; };
 		BBB26E7A20EBDF23000D9E58 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB26E7920EBDF23000D9E58 /* DesignableTextField.swift */; };
 		BBC017B220EE6DE60098EF8A /* PlayerInformationCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC017B020EE6DE60098EF8A /* PlayerInformationCellTableViewCell.swift */; };
 		BBC017B320EE6DE60098EF8A /* PlayerInformationCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBC017B120EE6DE60098EF8A /* PlayerInformationCellTableViewCell.xib */; };
@@ -39,6 +39,7 @@
 		BB07E7A420E0123100176CA0 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		BB07E7C320E0388D00176CA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BB37B95420E2514300453ACA /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		BB38F20420F49FCF00123B51 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		BB3F8E2D20E523AA000303A3 /* MainGameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameScreenViewController.swift; sourceTree = "<group>"; };
 		BB4201B320DB9C37003146AD /* NumberOfPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfPlayerViewController.swift; sourceTree = "<group>"; };
 		BB4201B520DBA513003146AD /* WriteQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteQuestionViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		BB63E38020DA420E00761E3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB70EF7520DCF5250079CF62 /* GameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
 		BBA0E0AB20EF58E30003BA79 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		BBB037E420DEED2D006DB77B /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		BBB26E7920EBDF23000D9E58 /* DesignableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		BBC017B020EE6DE60098EF8A /* PlayerInformationCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInformationCellTableViewCell.swift; sourceTree = "<group>"; };
 		BBC017B120EE6DE60098EF8A /* PlayerInformationCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerInformationCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -125,8 +125,8 @@
 		BB63E38620DA428E00761E3A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BBB037E420DEED2D006DB77B /* Question.swift */,
 				BBA0E0AB20EF58E30003BA79 /* Player.swift */,
+				BB38F20320F49FCF00123B51 /* DataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,22 +298,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FiveSeconds/Pods-FiveSeconds-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -337,7 +327,7 @@
 				BB37B95520E2514300453ACA /* RulesViewController.swift in Sources */,
 				BB63E37520DA420D00761E3A /* AppDelegate.swift in Sources */,
 				BBB26E7A20EBDF23000D9E58 /* DesignableTextField.swift in Sources */,
-				BBB037E520DEED2D006DB77B /* Question.swift in Sources */,
+				BB38F20520F49FCF00123B51 /* DataModel.xcdatamodeld in Sources */,
 				BB4201B420DB9C37003146AD /* NumberOfPlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,6 +533,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BB38F20320F49FCF00123B51 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BB38F20420F49FCF00123B51 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = BB38F20420F49FCF00123B51 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BB63E36920DA420D00761E3A /* Project object */;
 }

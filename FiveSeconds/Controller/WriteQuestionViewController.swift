@@ -8,12 +8,11 @@
 
 import Foundation
 import UIKit
-import Firebase
 
 class WriteQuestionViewController: UIViewController, UITextViewDelegate{
     
     // variables and declarations here
-    let DBRef = Database.database().reference().child("questions")
+//    let DBRef = Database.database().reference().child("questions")
     var numOfChilds: [Int] = []
     
     
@@ -52,34 +51,34 @@ class WriteQuestionViewController: UIViewController, UITextViewDelegate{
     ////////////WRITING QUESTION
     func writeQuestion(){
         
-        let questionDictionary = ["mainBody": txtCustomQuestion.text!]
+//        let questionDictionary = ["mainBody": txtCustomQuestion.text!]
         
-        DBRef.childByAutoId().setValue(questionDictionary){
-            (error, reference) in
-            if error != nil {
-                print(error!)
-            }else{
-                //UI AlertView yaz buraya
-                print("message send!")
-                self.txtCustomQuestion.text = ""
-                
-            }
-        }
+//        DBRef.childByAutoId().setValue(questionDictionary){
+//            (error, reference) in
+//            if error != nil {
+//                print(error!)
+//            }else{
+//                //UI AlertView yaz buraya
+//                print("message send!")
+//                self.txtCustomQuestion.text = ""
+//
+//            }
+//        }
     }
     
-    func questionNumber() -> Int {
-        
-        DBRef.observe(.value) { (snapshot) in
-            for child in snapshot.children{
-                let snap = child as! DataSnapshot
-                let key = snap.key
-
-                self.numOfChilds.append(Int(key)!)
-            }
-        }
-
-        return numOfChilds.count
-    }
+//    func questionNumber() -> Int {
+    
+//        DBRef.observe(.value) { (snapshot) in
+//            for child in snapshot.children{
+//                let snap = child as! DataSnapshot
+//                let key = snap.key
+//
+//                self.numOfChilds.append(Int(key)!)
+//            }
+//        }
+//
+//        return numOfChilds.count
+//    }
     
 
     

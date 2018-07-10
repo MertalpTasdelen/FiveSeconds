@@ -8,8 +8,6 @@
 
 import Foundation
 import UIKit
-import SwiftyJSON
-import Firebase
 
 
 class MainGameScreenViewController : UIViewController {
