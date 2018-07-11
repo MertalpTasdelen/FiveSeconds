@@ -12,8 +12,6 @@ import MessageUI
 
 class WelcomeViewController: UIViewController, MFMailComposeViewControllerDelegate{
 
-
-    
     @IBAction func btnWriteQuestion(_ sender: UIButton) {
         performSegue(withIdentifier: "writeQuestion", sender: self)
         
@@ -39,20 +37,14 @@ class WelcomeViewController: UIViewController, MFMailComposeViewControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     func sendEmail(){
-       ////// burası çalışmıyor neden ??!!
+
         if !MFMailComposeViewController.canSendMail() {
             print("Mail services are not available")
-            
-            print("mail service is not avaiable")
+
             let alert = UIAlertController(title: "HATA !", message: "Mail açılırken bir sorun oluştu", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Yeniden Dene", style: .default, handler: { (action) in
                 

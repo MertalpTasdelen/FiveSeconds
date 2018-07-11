@@ -14,8 +14,9 @@ class WriteQuestionViewController: UIViewController, UITextViewDelegate{
     
     // variables and declarations here
 //    let DBRef = Database.database().reference().child("questions")
-    var numOfChilds: [Int] = []
-    let question
+//    var numOfChilds: [Int] = []
+    var tmpQuestion: String = ""
+    let realm = try! Realm()
     
     
     @IBOutlet weak var txtCustomQuestion: UITextView!
@@ -53,28 +54,24 @@ class WriteQuestionViewController: UIViewController, UITextViewDelegate{
     ////////////WRITING QUESTION
     func writeQuestion(){
         
-//        let questionDictionary = ["mainBody": txtCustomQuestion.text!]
+        let newQuestion = Question()
+        newQuestion.title = txtCustomQuestion.text!
+        newQuestion.date = Date.init()
         
-//        DBRef.childByAutoId().setValue(questionDictionary){
-//            (error, reference) in
-//            if error != nil {
-//                print(error!)
-//            }else{
-//                //UI AlertView yaz buraya
-//                print("message send!")
-//                self.txtCustomQuestion.text = ""
-//
-//            }
-//        }
+        save(question: newQuestion)
+        
+        txtCustomQuestion.text = ""
     }
     
     //MARK: Save the question
     
     func save(question: Question){
         do {
-            try <#throwing expression#>
-        } catch <#pattern#> {
-            <#statements#>
+            try realm.write {
+                 realm.add(question)
+            }
+        } catch {
+            print("Cant write the data \(error)")
         }
         
     }

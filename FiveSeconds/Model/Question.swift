@@ -12,7 +12,5 @@ import RealmSwift
 
 class Question: Object {
     @objc dynamic var title: String = ""
-    @objc dynamic var questionNumber: Int = 0
     @objc dynamic var date = Date()
-//    var parentRelation = LinkingObjects(fromType: Player.self, property: "questions")
 }

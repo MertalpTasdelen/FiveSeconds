@@ -17,13 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-               
-        do{
-            let realm = try Realm()
-        } catch {
-            print("\(error)")
-        }
-
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL)  //For getting the path
+        
         return true
     }
 

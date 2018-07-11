@@ -54,7 +54,7 @@ class NumberOfPlayerViewController: UIViewController, UITextFieldDelegate{
     }
     
 
-    
+    //MARK: Control for the vlaid player number
     func control(){
         if (txtPlayerCount.text?.isEmpty) == true  || Int(txtPlayerCount.text!)! == 0 ||  Int(txtPlayerCount.text!)! == 1  {
             let alert = UIAlertController(title: "Kimse Yok Mu ?", message: "Bu oyun en az iki kişi ile oynanır", preferredStyle: UIAlertControllerStyle.alert)
