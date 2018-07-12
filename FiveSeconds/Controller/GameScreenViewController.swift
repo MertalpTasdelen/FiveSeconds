@@ -67,7 +67,7 @@ class GameScreenViewController: UIViewController, UITableViewDelegate, UITableVi
 //        guard let enteredName = tblPlayerNames.indexPath(for: sender) else {return}
 //
 //        print(sender.txtPlayerName.text!)
-        var playerUnknown = Player(name: sender.txtPlayerName.text!, point: 0)
+        var playerUnknown = Player(name: sender.txtPlayerName.text!, point: 0) 
         tempPlayers.append(playerUnknown)
         
     }
