@@ -146,7 +146,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorunu bizimle paylaş" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFA-ZD-CoL">
-                                <rect key="frame" x="40" y="55" width="240.5" height="30"/>
+                                <rect key="frame" x="40.5" y="55" width="240.5" height="30"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -450,7 +450,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fX-uA-y6u">
                                 <rect key="frame" x="25" y="157" width="274" height="194"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.23539169130000001" green="0.115438737" blue="0.25115793939999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Tap for question">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -461,7 +460,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sıra .... kişisinde" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mug-Ah-w46">
-                                <rect key="frame" x="63" y="112" width="194" height="21"/>
+                                <rect key="frame" x="16" y="112" width="293" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -474,6 +473,7 @@
                     <connections>
                         <outlet property="btnUncoverQuestion" destination="9fX-uA-y6u" id="wKR-eT-Lpn"/>
                         <outlet property="lblTimeShow" destination="EtQ-mX-3Xl" id="wcJ-dW-E1e"/>
+                        <outlet property="lblTurnSpecifier" destination="Mug-Ah-w46" id="e8M-A2-EN9"/>
                         <outlet property="progressView" destination="iwg-V7-eoA" id="1CI-7A-tvI"/>
                     </connections>
                 </viewController>
