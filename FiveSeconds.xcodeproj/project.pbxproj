@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB07E7C420E0388D00176CA0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB07E7C320E0388D00176CA0 /* GoogleService-Info.plist */; };
 		BB37B95520E2514300453ACA /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB37B95420E2514300453ACA /* RulesViewController.swift */; };
 		BB38F20720F56F6F00123B51 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB38F20620F56F6F00123B51 /* Question.swift */; };
 		BB3F8E2E20E523AA000303A3 /* MainGameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F8E2D20E523AA000303A3 /* MainGameScreenViewController.swift */; };
@@ -37,7 +36,6 @@
 		382E106E8C670496C34923F4 /* Pods-FiveSeconds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FiveSeconds.release.xcconfig"; path = "Pods/Target Support Files/Pods-FiveSeconds/Pods-FiveSeconds.release.xcconfig"; sourceTree = "<group>"; };
 		BB07E7A320E0123100176CA0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		BB07E7A420E0123100176CA0 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		BB07E7C320E0388D00176CA0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BB37B95420E2514300453ACA /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		BB38F20620F56F6F00123B51 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		BB3F8E2D20E523AA000303A3 /* MainGameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameScreenViewController.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 				BB63E38720DA429400761E3A /* View */,
 				BB63E37B20DA420E00761E3A /* Assets.xcassets */,
 				BB63E38020DA420E00761E3A /* Info.plist */,
-				BB07E7C320E0388D00176CA0 /* GoogleService-Info.plist */,
 			);
 			path = FiveSeconds;
 			sourceTree = "<group>";
@@ -259,7 +256,6 @@
 				BBEA061120DB25AE00C1565B /* SF-Pro-Display-Medium.otf in Resources */,
 				BBC017B320EE6DE60098EF8A /* PlayerInformationCellTableViewCell.xib in Resources */,
 				BB63E37F20DA420E00761E3A /* LaunchScreen.storyboard in Resources */,
-				BB07E7C420E0388D00176CA0 /* GoogleService-Info.plist in Resources */,
 				BB63E37C20DA420E00761E3A /* Assets.xcassets in Resources */,
 				BBEA060920DB25AE00C1565B /* SF-Pro-Display-Regular.otf in Resources */,
 				BBEA061220DB25AE00C1565B /* SF-Pro-Display-Thin.otf in Resources */,
