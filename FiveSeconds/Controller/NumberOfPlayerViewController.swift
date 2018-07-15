@@ -34,6 +34,7 @@ class NumberOfPlayerViewController: UIViewController, UITextFieldDelegate{
    
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gameScreen" {
             let secondVC = segue.destination as! GameScreenViewController
