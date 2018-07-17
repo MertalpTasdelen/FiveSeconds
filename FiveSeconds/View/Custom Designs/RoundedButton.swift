@@ -13,7 +13,7 @@ import UIKit
 {
     
     //initial value of rounded buttons it can be rearrage via story board
-    @IBInspectable var cornerRadius: CGFloat = 10 {
+    @IBInspectable var cornerRadius: CGFloat = 5 {
         didSet {
             refreshCorners(value: cornerRadius)
         }

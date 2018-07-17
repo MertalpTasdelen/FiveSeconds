@@ -13,16 +13,37 @@ import ChameleonFramework
 
 class MainGameScreenViewController : UIViewController {
     
+    public var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    
     //MARK: IBOutlest
     @IBOutlet weak var lblTurnSpecifier: UILabel!
     
     @IBOutlet weak var lblProgressViewLocation: UIView!
     
-    @IBOutlet weak var lblTimeShow: UILabel!
-    
     @IBOutlet weak var btnUncoverQuestion: UIButton!
 
     @IBOutlet weak var btnProgressView: RoundedButton!
+    
+    let lblFiveSeconds: UILabel = {
+        let label = UILabel()
+        label.text = "5.00"
+        label.textAlignment = .center
+        label.textColor = UIColor.flatWhite
+        label.font = UIFont.boldSystemFont(ofSize: 32)
+        label.backgroundColor = UIColor.black.withAlphaComponent(0)
+        return label
+    }()
+    
+    let btnQuestions: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "PostPaper"), for: .normal )
+        button.setTitleColor( UIColor.flatBlack, for: .normal)
+        return button
+    }()
+    
+
     //MARK: IBActionss
     
     @IBAction func btnUncoverQuestion(_ sender: RoundedButton) {
@@ -32,47 +53,22 @@ class MainGameScreenViewController : UIViewController {
             sender.setTitle("Başlat", for: .normal)
             sender.setTitleColor(UIColor.flatWhite, for: .normal)
             btnState = btnState + 1
-            proggressView()
+            
         } else if btnState == 1 {
-            
-            startTimer()
+    
+            resumePulsinCircle()
             customCircularProgress()
-            
+            animatePulsingCircle()
             sender.setTitle("Tamam", for: .normal)
             sender.setTitleColor(UIColor.flatWhite, for: .normal)
             btnState = btnState + 1
             shapeLayer.strokeEnd = 0
             
-        } else if btnState == 2 {
             
+        } else if btnState == 2 {
+            stopPulsingCircle()
             stopTimer()
-            let alert = UIAlertController(title: "Sizce cevap doğru mu", message: "Seçimin yap", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Doğru", style: .default, handler: { (trueAction) in
-                self.playerArray[self.turn].point += 1
-                self.turn += 1
-                if self.playerArray.count == self.turn{
-                    self.turn = 0
-                }
-                self.updateQuestionScreen(button: sender)
-                self.btnState = 0
-                self.resetTimer()
-                self.lblWhoWillPlay(playerTurn: self.turn)
-                self.btnUncoverQuestion.setTitle("", for: .normal)
-                self.btnUncoverQuestion.backgroundColor = UIColor.randomFlat
-            }))
-            alert.addAction(UIAlertAction(title: "Yanlış", style: .default, handler: { (wrongAction) in
-                self.turn += 1
-                if self.playerArray.count == self.turn {
-                    self.turn = 0
-                }
-                self.updateQuestionScreen(button: sender)
-                self.btnState = 0
-                self.resetTimer()
-                self.lblWhoWillPlay(playerTurn: self.turn)
-                self.btnUncoverQuestion.setTitle("", for: .normal)
-                self.btnUncoverQuestion.backgroundColor = UIColor.randomFlat
-            }))
-            self.present(alert, animated: true, completion: nil)
+            alertOnDoneOrFinish(sender: sender)
             
         }
     }
@@ -81,22 +77,7 @@ class MainGameScreenViewController : UIViewController {
         self.dismiss(animated: true, completion: nil)
         
     }
-    
-//    let lblFiveSeconsd: UILabel = {
-//        let label = UILabel()
-//        label.text = "5.00"
-//        label.textAlignment = .center
-//        label.font = UIFont.boldSystemFont(ofSize: 32)
-//        label.textColor = .white
-//        return label
-//    }()
-//
-//    private func setupPercentageLabel() {
-//        lblProgressViewLocation.addSubview(lblFiveSeconsd)
-//        lblFiveSeconsd.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-//        lblFiveSeconsd.center = lblProgressViewLocation.center
-//    }
-//
+
     //MARK: variables and declarations
     
     let realm = try! Realm()
@@ -113,69 +94,105 @@ class MainGameScreenViewController : UIViewController {
     //MARK: For the progress view declerations
     let shapeLayer = CAShapeLayer()
     let ghostLayer = CAShapeLayer()
-    var pulsingLayer: CAShapeLayer!
-    let circularPath = UIBezierPath(arcCenter: .zero, radius: 50.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+    let pulsingLayer = CAShapeLayer()
+    var circularPath = UIBezierPath(arcCenter: .zero, radius: 50.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+    
+    //pulse animation var
+    let anim = CABasicAnimation(keyPath: "transform.scale")
+
 
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Initialization for the first player
-        btnUncoverQuestion.backgroundColor = UIColor.randomFlat
         lblWhoWillPlay(playerTurn: turn)
         loadQuestions()
-        ghostCircle()
         pulsingCircle()
+        ghostCircle()
+        proggressView()
+        setupLabel()
         
-//        setupPercentageLabel()
-
-        
+    }
+    
+    func setupLabel(){
+        view.addSubview(lblFiveSeconds)
+        lblFiveSeconds.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        lblFiveSeconds.center = lblProgressViewLocation.center
     }
     
     func ghostCircle(){
 //        let center = view.center
 
+        if screenWidth > 750{
+            circularPath = UIBezierPath(arcCenter: .zero, radius: 95.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        }
+        
+        
         ghostLayer.path = circularPath.cgPath
         
         ghostLayer.lineWidth = 7
         ghostLayer.strokeColor = UIColor.flatGrayDark.cgColor
         ghostLayer.lineCap = kCALineCapRound
-        ghostLayer.fillColor = UIColor.clear.cgColor
+        ghostLayer.fillColor = UIColor.flatOrange.cgColor
         ghostLayer.position = lblProgressViewLocation.center
         view.layer.addSublayer(ghostLayer)
     }
     
     func pulsingCircle(){
-        pulsingLayer = CAShapeLayer()
         
-        
+        if screenWidth > 750{
+            circularPath = UIBezierPath(arcCenter: .zero, radius: 95.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        }
+       
         pulsingLayer.path = circularPath.cgPath
-        pulsingLayer.lineWidth = 9
+        
         pulsingLayer.strokeColor = UIColor.clear.cgColor
         pulsingLayer.lineCap = kCALineCapRound
-        pulsingLayer.fillColor = UIColor.flatOrange.cgColor
+        pulsingLayer.fillColor = UIColor.flatForestGreenDark.withAlphaComponent(0.4).cgColor
         pulsingLayer.position = lblProgressViewLocation.center
-        view.layer.addSublayer(pulsingLayer)
-        animatePulsingCircle()
-
         
+        view.layer.addSublayer(pulsingLayer)
     }
     
     func animatePulsingCircle(){
-        let anim = CABasicAnimation(keyPath: "transform.scale")
         
-        anim.toValue = 1.5
+        if screenWidth > 750{
+            circularPath = UIBezierPath(arcCenter: .zero, radius: 95.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        }
+
+        anim.toValue = 1.3
         anim.duration = 0.8
         anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         anim.autoreverses = true
         anim.repeatCount = Float.infinity
         
-        pulsingLayer.add(anim, forKey: "pulsing")
+        pulsingLayer.add(anim, forKey: "pulsingLayer")
+    }
+    
+    func stopPulsingCircle(){
+        pulsingLayer.speed = 0.0
+    }
+    
+    func resumePulsinCircle(){
+        let pausedTime = pulsingLayer.timeOffset
+        pulsingLayer.speed = 1.0
+        pulsingLayer.timeOffset = 0.0
+        pulsingLayer.beginTime = 0.0
+        let timeSincePause = pulsingLayer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        pulsingLayer.beginTime = timeSincePause
+        
     }
     
     func proggressView(){
+        
+        if screenWidth > 750{
+            circularPath = UIBezierPath(arcCenter: .zero, radius: 95.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        }
+        
 //       Main layer for the progressview
         shapeLayer.path = circularPath.cgPath
+        
         shapeLayer.lineWidth = 9
         shapeLayer.strokeColor = UIColor.flatGreen.cgColor
         shapeLayer.lineCap = kCALineCapRound
@@ -185,11 +202,10 @@ class MainGameScreenViewController : UIViewController {
         shapeLayer.strokeEnd = 0
         
         view.layer.addSublayer(shapeLayer)
-        
-//        btnUncoverQuestion.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(customCircularProgress)))
+    
     }
     
-    private func customCircularProgress(){
+    func customCircularProgress(){
         
         let basicAnim = CABasicAnimation(keyPath: "strokeEnd")
         
@@ -201,8 +217,10 @@ class MainGameScreenViewController : UIViewController {
         basicAnim.isRemovedOnCompletion = false
         
         shapeLayer.add(basicAnim, forKey: "SoEasy")
-        let percentage = CGFloat(1) - CGFloat(seconds) / CGFloat(totalSeconds)
-        shapeLayer.strokeEnd = percentage
+        startTimer()
+//        let percentage = CGFloat(seconds) / CGFloat(totalSeconds)
+//        print(percentage)
+//        shapeLayer.strokeEnd = percentage
 
     }
     
@@ -212,16 +230,18 @@ class MainGameScreenViewController : UIViewController {
     func startTimer(){
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
         isTimerRunning = true
+        
     }
 
     
     @objc func updateTimer(){
         if seconds < 0.01  {
             timer.invalidate()
+            alertOnDoneOrFinish(sender: btnProgressView)
+            stopPulsingCircle()
         }else {
             seconds = seconds - 0.01
-            lblTimeShow.text = String(format: "%.2f", seconds)
-            print(lblTimeShow.text!)
+            lblFiveSeconds.text = String(format: "%.2f", seconds)
         }
     }
     
@@ -234,8 +254,8 @@ class MainGameScreenViewController : UIViewController {
     
     func resetTimer(){
         timer.invalidate()
-        seconds = 5
-        lblTimeShow.text = "\(seconds)"
+        seconds = totalSeconds
+        lblFiveSeconds.text = "\(seconds)"
         isTimerRunning = false
     }
     
@@ -243,8 +263,8 @@ class MainGameScreenViewController : UIViewController {
          questionArray = realm.objects(Question.self) // pull the all questions in variable
     }
     
-    func updateQuestionScreen(button: UIButton){
-        button.setTitleColor(UIColor.flatWhite, for: .normal)
+    func updateQuestionScreen(button: RoundedButton){
+        button.setTitleColor(UIColor.flatBlack, for: .normal)
         button.setTitle("Kartı Aç", for: .normal)
         questionNumber += 1
     }
@@ -253,6 +273,36 @@ class MainGameScreenViewController : UIViewController {
         lblTurnSpecifier.text = "Sorunun sahibi \(playerArray[playerTurn].name)"
         lblTurnSpecifier.textColor = UIColor.flatBlack
         lblTurnSpecifier.textAlignment = .center
+    }
+    
+    func alertOnDoneOrFinish(sender: RoundedButton){
+        let alert = UIAlertController(title: "Sizce cevap doğru mu", message: "Seçimin yap", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Doğru", style: .default, handler: { (trueAction) in
+            self.playerArray[self.turn].point += 1
+            self.turn += 1
+            if self.playerArray.count == self.turn{
+                self.turn = 0
+            }
+            self.updateQuestionScreen(button: sender)
+            self.btnState = 0
+            self.resetTimer()
+            self.lblWhoWillPlay(playerTurn: self.turn)
+            self.btnUncoverQuestion.setTitle("", for: .normal)
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Yanlış", style: .default, handler: { (wrongAction) in
+            self.turn += 1
+            if self.playerArray.count == self.turn {
+                self.turn = 0
+            }
+            self.updateQuestionScreen(button: sender)
+            self.btnState = 0
+            self.resetTimer()
+            self.lblWhoWillPlay(playerTurn: self.turn)
+            self.btnUncoverQuestion.setTitle("", for: .normal)
+           
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 
     
