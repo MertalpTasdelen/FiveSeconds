@@ -16,6 +16,8 @@ class MainGameScreenViewController : UIViewController {
     //MARK: IBOutlest
     @IBOutlet weak var lblTurnSpecifier: UILabel!
     
+    @IBOutlet weak var lblProgressViewLocation: UIView!
+    
     @IBOutlet weak var lblTimeShow: UILabel!
     
     @IBOutlet weak var btnUncoverQuestion: UIButton!
@@ -29,14 +31,17 @@ class MainGameScreenViewController : UIViewController {
             btnUncoverQuestion.setTitle(questionArray?[questionNumber].title ?? "Soru yok", for: .normal)
             sender.setTitle("Başlat", for: .normal)
             sender.setTitleColor(UIColor.flatWhite, for: .normal)
-            proggressViewStart()
             btnState = btnState + 1
-
+            proggressView()
         } else if btnState == 1 {
+            
             startTimer()
+            customCircularProgress()
+            
             sender.setTitle("Tamam", for: .normal)
             sender.setTitleColor(UIColor.flatWhite, for: .normal)
             btnState = btnState + 1
+            shapeLayer.strokeEnd = 0
             
         } else if btnState == 2 {
             
@@ -77,6 +82,21 @@ class MainGameScreenViewController : UIViewController {
         
     }
     
+//    let lblFiveSeconsd: UILabel = {
+//        let label = UILabel()
+//        label.text = "5.00"
+//        label.textAlignment = .center
+//        label.font = UIFont.boldSystemFont(ofSize: 32)
+//        label.textColor = .white
+//        return label
+//    }()
+//
+//    private func setupPercentageLabel() {
+//        lblProgressViewLocation.addSubview(lblFiveSeconsd)
+//        lblFiveSeconsd.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+//        lblFiveSeconsd.center = lblProgressViewLocation.center
+//    }
+//
     //MARK: variables and declarations
     
     let realm = try! Realm()
@@ -104,11 +124,12 @@ class MainGameScreenViewController : UIViewController {
         btnUncoverQuestion.backgroundColor = UIColor.randomFlat
         lblWhoWillPlay(playerTurn: turn)
         loadQuestions()
-        pulsingCircle()
-        animatePulsingCircle()
         ghostCircle()
+        pulsingCircle()
         
-       
+//        setupPercentageLabel()
+
+        
     }
     
     func ghostCircle(){
@@ -119,25 +140,25 @@ class MainGameScreenViewController : UIViewController {
         ghostLayer.lineWidth = 7
         ghostLayer.strokeColor = UIColor.flatGrayDark.cgColor
         ghostLayer.lineCap = kCALineCapRound
-        ghostLayer.fillColor = UIColor.flatOrange.cgColor
-        ghostLayer.position = view.center
+        ghostLayer.fillColor = UIColor.clear.cgColor
+        ghostLayer.position = lblProgressViewLocation.center
         view.layer.addSublayer(ghostLayer)
     }
     
     func pulsingCircle(){
-        
         pulsingLayer = CAShapeLayer()
-
+        
         
         pulsingLayer.path = circularPath.cgPath
         pulsingLayer.lineWidth = 9
         pulsingLayer.strokeColor = UIColor.clear.cgColor
         pulsingLayer.lineCap = kCALineCapRound
-        pulsingLayer.fillColor = UIColor.flatForestGreenDark.cgColor
-        pulsingLayer.position = view.center
+        pulsingLayer.fillColor = UIColor.flatOrange.cgColor
+        pulsingLayer.position = lblProgressViewLocation.center
         view.layer.addSublayer(pulsingLayer)
+        animatePulsingCircle()
+
         
-//        animatePulsingCircle()
     }
     
     func animatePulsingCircle(){
@@ -149,28 +170,26 @@ class MainGameScreenViewController : UIViewController {
         anim.autoreverses = true
         anim.repeatCount = Float.infinity
         
-        pulsingLayer.add(anim, forKey: "string")
+        pulsingLayer.add(anim, forKey: "pulsing")
     }
     
-    func proggressViewStart(){
-  
+    func proggressView(){
 //       Main layer for the progressview
         shapeLayer.path = circularPath.cgPath
         shapeLayer.lineWidth = 9
         shapeLayer.strokeColor = UIColor.flatGreen.cgColor
         shapeLayer.lineCap = kCALineCapRound
         shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.position = view.center
+        shapeLayer.position = lblProgressViewLocation.center
         shapeLayer.transform = CATransform3DMakeRotation(-CGFloat.pi/2, 0, 0, 1)
         shapeLayer.strokeEnd = 0
+        
         view.layer.addSublayer(shapeLayer)
         
-        
-        btnProgressView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(customCircularProgress)))
-
+//        btnUncoverQuestion.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(customCircularProgress)))
     }
     
-    @objc private func customCircularProgress(){
+    private func customCircularProgress(){
         
         let basicAnim = CABasicAnimation(keyPath: "strokeEnd")
         
@@ -183,8 +202,6 @@ class MainGameScreenViewController : UIViewController {
         
         shapeLayer.add(basicAnim, forKey: "SoEasy")
         let percentage = CGFloat(1) - CGFloat(seconds) / CGFloat(totalSeconds)
-
-      //  print(percentage) // buranın çıktıs neden 0.02 ???!!
         shapeLayer.strokeEnd = percentage
 
     }
@@ -193,9 +210,7 @@ class MainGameScreenViewController : UIViewController {
     
     //MARK: Start the timer
     func startTimer(){
-        
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
-        
         isTimerRunning = true
     }
 
@@ -203,10 +218,10 @@ class MainGameScreenViewController : UIViewController {
     @objc func updateTimer(){
         if seconds < 0.01  {
             timer.invalidate()
-            print("oldu mu")
         }else {
             seconds = seconds - 0.01
             lblTimeShow.text = String(format: "%.2f", seconds)
+            print(lblTimeShow.text!)
         }
     }
     
