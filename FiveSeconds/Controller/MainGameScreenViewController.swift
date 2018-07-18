@@ -38,7 +38,7 @@ class MainGameScreenViewController : UIViewController {
     
     let btnQuestions: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "PostPaper"), for: .normal )
+        button.setBackgroundImage(#imageLiteral(resourceName: "PostPaper"), for: .normal)
         button.setTitleColor( UIColor.flatBlack, for: .normal)
         return button
     }()
