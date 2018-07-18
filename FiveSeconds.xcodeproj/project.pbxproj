@@ -21,14 +21,12 @@
 		BB63E37F20DA420E00761E3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB63E37D20DA420E00761E3A /* LaunchScreen.storyboard */; };
 		BB70EF7620DCF5250079CF62 /* GameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB70EF7520DCF5250079CF62 /* GameScreenViewController.swift */; };
 		BBA0E0AC20EF58E30003BA79 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA0E0AB20EF58E30003BA79 /* Player.swift */; };
+		BBA718D520FF6FA700264139 /* Berton-Roman-trial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBA718D420FF6FA700264139 /* Berton-Roman-trial.ttf */; };
+		BBA718DA20FF757000264139 /* KGTenThousandReasons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBA718D820FF757000264139 /* KGTenThousandReasons.ttf */; };
+		BBA718DB20FF757000264139 /* KGTenThousandReasonsAlt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBA718D920FF757000264139 /* KGTenThousandReasonsAlt.ttf */; };
 		BBB26E7A20EBDF23000D9E58 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB26E7920EBDF23000D9E58 /* DesignableTextField.swift */; };
 		BBC017B220EE6DE60098EF8A /* PlayerInformationCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC017B020EE6DE60098EF8A /* PlayerInformationCellTableViewCell.swift */; };
 		BBC017B320EE6DE60098EF8A /* PlayerInformationCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBC017B120EE6DE60098EF8A /* PlayerInformationCellTableViewCell.xib */; };
-		BBEA060920DB25AE00C1565B /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BBEA05F720DB25A900C1565B /* SF-Pro-Display-Regular.otf */; };
-		BBEA060B20DB25AE00C1565B /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = BBEA05F920DB25A900C1565B /* SF-Pro-Display-Light.otf */; };
-		BBEA060E20DB25AE00C1565B /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BBEA05FC20DB25AA00C1565B /* SF-Pro-Display-Semibold.otf */; };
-		BBEA061120DB25AE00C1565B /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = BBEA05FF20DB25AB00C1565B /* SF-Pro-Display-Medium.otf */; };
-		BBEA061220DB25AE00C1565B /* SF-Pro-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = BBEA060020DB25AB00C1565B /* SF-Pro-Display-Thin.otf */; };
 		BBEA061C20DB291200C1565B /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEA061B20DB291200C1565B /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,14 +49,12 @@
 		BB63E38020DA420E00761E3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB70EF7520DCF5250079CF62 /* GameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreenViewController.swift; sourceTree = "<group>"; };
 		BBA0E0AB20EF58E30003BA79 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		BBA718D420FF6FA700264139 /* Berton-Roman-trial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Berton-Roman-trial.ttf"; sourceTree = "<group>"; };
+		BBA718D820FF757000264139 /* KGTenThousandReasons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KGTenThousandReasons.ttf; sourceTree = "<group>"; };
+		BBA718D920FF757000264139 /* KGTenThousandReasonsAlt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KGTenThousandReasonsAlt.ttf; sourceTree = "<group>"; };
 		BBB26E7920EBDF23000D9E58 /* DesignableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		BBC017B020EE6DE60098EF8A /* PlayerInformationCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInformationCellTableViewCell.swift; sourceTree = "<group>"; };
 		BBC017B120EE6DE60098EF8A /* PlayerInformationCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerInformationCellTableViewCell.xib; sourceTree = "<group>"; };
-		BBEA05F720DB25A900C1565B /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
-		BBEA05F920DB25A900C1565B /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
-		BBEA05FC20DB25AA00C1565B /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
-		BBEA05FF20DB25AB00C1565B /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
-		BBEA060020DB25AB00C1565B /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
 		BBEA061B20DB291200C1565B /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		BF04A7FCAADC5A1CAB989C59 /* Pods-FiveSeconds.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FiveSeconds.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FiveSeconds/Pods-FiveSeconds.debug.xcconfig"; sourceTree = "<group>"; };
 		D9BEA72D95E8D001D380E72A /* Pods_FiveSeconds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FiveSeconds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,11 +161,9 @@
 		BBEA05F620DB257100C1565B /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				BBEA05F920DB25A900C1565B /* SF-Pro-Display-Light.otf */,
-				BBEA05FF20DB25AB00C1565B /* SF-Pro-Display-Medium.otf */,
-				BBEA05F720DB25A900C1565B /* SF-Pro-Display-Regular.otf */,
-				BBEA05FC20DB25AA00C1565B /* SF-Pro-Display-Semibold.otf */,
-				BBEA060020DB25AB00C1565B /* SF-Pro-Display-Thin.otf */,
+				BBA718D820FF757000264139 /* KGTenThousandReasons.ttf */,
+				BBA718D920FF757000264139 /* KGTenThousandReasonsAlt.ttf */,
+				BBA718D420FF6FA700264139 /* Berton-Roman-trial.ttf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -253,14 +247,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBEA061120DB25AE00C1565B /* SF-Pro-Display-Medium.otf in Resources */,
 				BBC017B320EE6DE60098EF8A /* PlayerInformationCellTableViewCell.xib in Resources */,
+				BBA718DB20FF757000264139 /* KGTenThousandReasonsAlt.ttf in Resources */,
 				BB63E37F20DA420E00761E3A /* LaunchScreen.storyboard in Resources */,
 				BB63E37C20DA420E00761E3A /* Assets.xcassets in Resources */,
-				BBEA060920DB25AE00C1565B /* SF-Pro-Display-Regular.otf in Resources */,
-				BBEA061220DB25AE00C1565B /* SF-Pro-Display-Thin.otf in Resources */,
-				BBEA060E20DB25AE00C1565B /* SF-Pro-Display-Semibold.otf in Resources */,
-				BBEA060B20DB25AE00C1565B /* SF-Pro-Display-Light.otf in Resources */,
+				BBA718D520FF6FA700264139 /* Berton-Roman-trial.ttf in Resources */,
+				BBA718DA20FF757000264139 /* KGTenThousandReasons.ttf in Resources */,
 				BB63E37A20DA420D00761E3A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

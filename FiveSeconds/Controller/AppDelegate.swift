@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        application.setStatusBarStyle(UIStatusBarStyleContrast, animated: true)
+        application.statusBarStyle = .lightContent
 //        print(Realm.Configuration.defaultConfiguration.fileURL)  //For getting the path
         
         return true
@@ -26,6 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
 
 
+    }
+    
+//    func applicationDidFinishLaunching(_ application: UIApplication) {
+//        UIApplication.shared.statusBarStyle = .lightContent
+//    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+//        UIApplication.shared.statusBarStyle = .lightContent
     }
     
 }

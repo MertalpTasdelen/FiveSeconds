@@ -14,4 +14,8 @@ class RulesViewController: UIViewController{
     @IBAction func btnBack(_ sender: RoundedButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }

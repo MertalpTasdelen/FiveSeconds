@@ -13,12 +13,14 @@ import ChameleonFramework
 
 class MainGameScreenViewController : UIViewController {
     
-    public var screenWidth: CGFloat {
-        return UIScreen.main.bounds.width
-    }
-    
+//    public var screenWidth: CGFloat {
+//        return UIScreen.main.bounds.width
+//    }
+//
     //MARK: IBOutlest
     @IBOutlet weak var lblTurnSpecifier: UILabel!
+    
+    @IBOutlet weak var progressPointer: UIStackView!
     
     @IBOutlet weak var lblProgressViewLocation: UIView!
     
@@ -36,12 +38,12 @@ class MainGameScreenViewController : UIViewController {
         return label
     }()
     
-    let btnQuestions: UIButton = {
-        let button = UIButton()
-        button.setBackgroundImage(#imageLiteral(resourceName: "PostPaper"), for: .normal)
-        button.setTitleColor( UIColor.flatBlack, for: .normal)
-        return button
-    }()
+//    let btnQuestions: UIButton = {
+//        let button = UIButton()
+//        button.setBackgroundImage(#imageLiteral(resourceName: "PostPaper"), for: .normal)
+//        button.setTitleColor( UIColor.flatBlack, for: .normal)
+//        return button
+//    }()
     
 
     //MARK: IBActionss
@@ -90,18 +92,21 @@ class MainGameScreenViewController : UIViewController {
     var btnState = 0 //what is the state for the big button
     var isTimerRunning = false
     var questionNumber = 0 //specifies the qustion number
-    
+    var screenWidth = CGFloat(UIScreen.main.bounds.width)
     //MARK: For the progress view declerations
     let shapeLayer = CAShapeLayer()
     let ghostLayer = CAShapeLayer()
     let pulsingLayer = CAShapeLayer()
-    var circularPath = UIBezierPath(arcCenter: .zero, radius: 50.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+    var circularPath = UIBezierPath(arcCenter: .zero, radius: 40.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
     
     //pulse animation var
     let anim = CABasicAnimation(keyPath: "transform.scale")
 
-
-
+    // burası çalışmıyor
+    override var prefersStatusBarHidden: Bool{
+        return true
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,7 +117,9 @@ class MainGameScreenViewController : UIViewController {
         ghostCircle()
         proggressView()
         setupLabel()
+        initUserLocation()
         
+
     }
     
     func setupLabel(){
@@ -124,8 +131,8 @@ class MainGameScreenViewController : UIViewController {
     func ghostCircle(){
 //        let center = view.center
 
-        if screenWidth > 750{
-            circularPath = UIBezierPath(arcCenter: .zero, radius: 95.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        if screenWidth > 374{
+            circularPath = UIBezierPath(arcCenter: .zero, radius: 80.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         }
         
         
@@ -141,8 +148,8 @@ class MainGameScreenViewController : UIViewController {
     
     func pulsingCircle(){
         
-        if screenWidth > 750{
-            circularPath = UIBezierPath(arcCenter: .zero, radius: 95.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        if screenWidth > 374{
+            circularPath = UIBezierPath(arcCenter: .zero, radius: 80.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         }
        
         pulsingLayer.path = circularPath.cgPath
@@ -157,8 +164,8 @@ class MainGameScreenViewController : UIViewController {
     
     func animatePulsingCircle(){
         
-        if screenWidth > 750{
-            circularPath = UIBezierPath(arcCenter: .zero, radius: 95.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        if screenWidth > 374{
+            circularPath = UIBezierPath(arcCenter: .zero, radius: 80.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         }
 
         anim.toValue = 1.3
@@ -186,8 +193,8 @@ class MainGameScreenViewController : UIViewController {
     
     func proggressView(){
         
-        if screenWidth > 750{
-            circularPath = UIBezierPath(arcCenter: .zero, radius: 95.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+        if screenWidth > 374{
+            circularPath = UIBezierPath(arcCenter: .zero, radius: 80.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
         }
         
 //       Main layer for the progressview
@@ -222,6 +229,26 @@ class MainGameScreenViewController : UIViewController {
 //        print(percentage)
 //        shapeLayer.strokeEnd = percentage
 
+    }
+    
+    func initUserLocation(){
+        for value in playerArray {
+            let playerNameImage: UIView = {
+               var label = UILabel()
+                label.text = value.name
+                label.font = UIFont.init(name: "KGTenThousandReasons", size: 15.0)
+                label.textColor = UIColor.flatWhite
+                return label
+            }()
+            view.addSubview(playerNameImage)
+            playerNameImage.translatesAutoresizingMaskIntoConstraints = false 
+            playerNameImage.bottomAnchor.constraint(equalTo: progressPointer.topAnchor, constant: 15).isActive = true
+//            playerNameImage.widthAnchor.constraint(equalToConstant: 45.0).isActive = true
+//            playerNameImage.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+
+            
+        }
+        
     }
     
 
@@ -264,15 +291,17 @@ class MainGameScreenViewController : UIViewController {
     }
     
     func updateQuestionScreen(button: RoundedButton){
-        button.setTitleColor(UIColor.flatBlack, for: .normal)
+        button.setTitleColor(UIColor.flatWhite, for: .normal)
         button.setTitle("Kartı Aç", for: .normal)
         questionNumber += 1
     }
     
     func lblWhoWillPlay(playerTurn: Int) {
         lblTurnSpecifier.text = "Sorunun sahibi \(playerArray[playerTurn].name)"
-        lblTurnSpecifier.textColor = UIColor.flatBlack
+        lblTurnSpecifier.textColor = UIColor.flatWhite
         lblTurnSpecifier.textAlignment = .center
+        lblTurnSpecifier.font = UIFont.init(name: "KGTenThousandReasons", size: 17.0)
+        
     }
     
     func alertOnDoneOrFinish(sender: RoundedButton){
