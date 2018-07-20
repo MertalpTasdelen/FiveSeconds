@@ -9,9 +9,10 @@
 import UIKit
 import RealmSwift
 import ChameleonFramework
+import AVFoundation
 
 
-class MainGameScreenViewController : UIViewController {
+class MainGameScreenViewController: UIViewController {
     
 //    public var screenWidth: CGFloat {
 //        return UIScreen.main.bounds.width
@@ -19,8 +20,6 @@ class MainGameScreenViewController : UIViewController {
 //
     //MARK: IBOutlest
     @IBOutlet weak var lblTurnSpecifier: UILabel!
-    
-    @IBOutlet weak var progressPointer: UIStackView!
     
     @IBOutlet weak var lblProgressViewLocation: UIView!
     
@@ -50,6 +49,7 @@ class MainGameScreenViewController : UIViewController {
     
     @IBAction func btnUncoverQuestion(_ sender: RoundedButton) {
         if btnState == 0{
+            playSound(sender.tag)
             //sadece soru görünür ve buton başlata dönüşür
             btnUncoverQuestion.setTitle(questionArray?[questionNumber].title ?? "Soru yok", for: .normal)
             sender.setTitle("Başlat", for: .normal)
@@ -57,7 +57,8 @@ class MainGameScreenViewController : UIViewController {
             btnState = btnState + 1
             
         } else if btnState == 1 {
-    
+            playSound(sender.tag)
+
             resumePulsinCircle()
             customCircularProgress()
             animatePulsingCircle()
@@ -68,6 +69,8 @@ class MainGameScreenViewController : UIViewController {
             
             
         } else if btnState == 2 {
+            playSound(sender.tag)
+
             stopPulsingCircle()
             stopTimer()
             alertOnDoneOrFinish(sender: sender)
@@ -76,12 +79,14 @@ class MainGameScreenViewController : UIViewController {
     }
     
     @IBAction func btnBack(_ sender: UIButton) {
+        playSound(sender.tag)
         self.dismiss(animated: true, completion: nil)
         
     }
 
     //MARK: variables and declarations
     
+    var sound: AVAudioPlayer!
     let realm = try! Realm()
     var playerArray: [Player] = [] //container for the player
     var questionArray: Results<Question>?
@@ -305,6 +310,21 @@ class MainGameScreenViewController : UIViewController {
            
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func playSound(_ tag: Int){
+        
+        guard let url = Bundle.main.url(forResource: "chalk\(tag)", withExtension: "wav") else {return}
+        
+        do {
+            try sound = AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        sound.prepareToPlay()
+        sound.play()
     }
 
     

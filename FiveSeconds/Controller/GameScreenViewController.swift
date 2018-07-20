@@ -6,10 +6,10 @@
 //  Copyright © 2018 Mertalp Taşdelen. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import ChameleonFramework
 import RealmSwift
+import AVFoundation
 
 
 class GameScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, PlayerInformationCellTableViewCellDelegate {
@@ -20,16 +20,19 @@ class GameScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tblPlayerNames: UITableView!
     
     @IBAction func btnStart(_ sender: RoundedButton) {
+        playSound(sender.tag)
         performSegue(withIdentifier: "mainGameScreen", sender: self)
     }
     
     @IBAction func btnBack(_ sender: RoundedButton) {
+        playSound(sender.tag)
         self.dismiss(animated: true, completion: nil)
     }
     
     var playerCount : Int = 0
     var playerNumber = 0
     var tempPlayers: [Player] = []
+    var sound: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +67,6 @@ class GameScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func getTextFieldName(_ sender: PlayerInformationCellTableViewCell) {
-//        guard let enteredName = tblPlayerNames.indexPath(for: sender) else {return}
-//
-//        print(sender.txtPlayerName.text!)
         var playerUnknown = Player(name: sender.txtPlayerName.text!, point: 0)
         tempPlayers.append(playerUnknown)
         
@@ -78,6 +78,8 @@ class GameScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         tblPlayerNames.estimatedRowHeight = 50.0
     }
   
+    
+    
     
     //This func. for the person who will play the game next screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -91,5 +93,19 @@ class GameScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    
+    func playSound(_ tag: Int){
+        
+        guard let url = Bundle.main.url(forResource: "chalk\(tag)", withExtension: "wav") else {return}
+        
+        do {
+            try sound = AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        sound.prepareToPlay()
+        sound.play()
+    }
     
 }

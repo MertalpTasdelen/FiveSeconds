@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RealmSwift
+import AVFoundation
 
 class WriteQuestionViewController: UIViewController, UITextViewDelegate{
     
@@ -17,15 +18,17 @@ class WriteQuestionViewController: UIViewController, UITextViewDelegate{
 //    var numOfChilds: [Int] = []
     var tmpQuestion: String = ""
     let realm = try! Realm()
-    
+    var sound: AVAudioPlayer!
     
     @IBOutlet weak var txtCustomQuestion: UITextView!
     
     @IBAction func btnBack(_ sender: UIButton) {
+        playSound(sender.tag)
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func btnSend(_ sender: RoundedButton) {
+        playSound(sender.tag)
         writeQuestion()
         txtCustomQuestion.resignFirstResponder()
     }
@@ -74,6 +77,20 @@ class WriteQuestionViewController: UIViewController, UITextViewDelegate{
             print("Cant write the data \(error)")
         }
         
+    }
+    
+    func playSound(_ tag: Int){
+        
+        guard let url = Bundle.main.url(forResource: "chalk\(tag)", withExtension: "wav") else {return}
+        
+        do {
+            try sound = AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        sound.prepareToPlay()
+        sound.play()
     }
     
 

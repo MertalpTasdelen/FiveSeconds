@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB01E3982102750F009516B8 /* MainGameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F8E2D20E523AA000303A3 /* MainGameScreenViewController.swift */; };
 		BB37B95520E2514300453ACA /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB37B95420E2514300453ACA /* RulesViewController.swift */; };
 		BB38F20720F56F6F00123B51 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB38F20620F56F6F00123B51 /* Question.swift */; };
-		BB3F8E2E20E523AA000303A3 /* MainGameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F8E2D20E523AA000303A3 /* MainGameScreenViewController.swift */; };
 		BB4201B420DB9C37003146AD /* NumberOfPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4201B320DB9C37003146AD /* NumberOfPlayerViewController.swift */; };
 		BB4201B620DBA513003146AD /* WriteQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4201B520DBA513003146AD /* WriteQuestionViewController.swift */; };
 		BB45EA782101681E00AD8BD8 /* chalk1.wav in Resources */ = {isa = PBXBuildFile; fileRef = BB45EA742101681D00AD8BD8 /* chalk1.wav */; };
@@ -334,9 +334,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBC017B220EE6DE60098EF8A /* PlayerInformationCellTableViewCell.swift in Sources */,
-				BB3F8E2E20E523AA000303A3 /* MainGameScreenViewController.swift in Sources */,
 				BB70EF7620DCF5250079CF62 /* GameScreenViewController.swift in Sources */,
 				BB63E37720DA420D00761E3A /* WelcomeViewController.swift in Sources */,
+				BB01E3982102750F009516B8 /* MainGameScreenViewController.swift in Sources */,
 				BBA0E0AC20EF58E30003BA79 /* Player.swift in Sources */,
 				BBEA061C20DB291200C1565B /* RoundedButton.swift in Sources */,
 				BB4201B620DBA513003146AD /* WriteQuestionViewController.swift in Sources */,

@@ -34,6 +34,8 @@ class NumberOfPlayerViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         txtPlayerCount.textAlignment = .center
+        txtPlayerCount.text = "\(2)"
+        playerCount = 2
    
     }
     
@@ -41,7 +43,6 @@ class NumberOfPlayerViewController: UIViewController, UITextFieldDelegate{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gameScreen" {
             let secondVC = segue.destination as! GameScreenViewController
-            
             secondVC.playerCount = Int(txtPlayerCount.text!)!
         }
     }
@@ -60,7 +61,7 @@ class NumberOfPlayerViewController: UIViewController, UITextFieldDelegate{
 
     //MARK: Control for the vlaid player number
     func control(){
-        if (txtPlayerCount.text?.isEmpty) == true  || Int(txtPlayerCount.text!)! == 0 ||  Int(txtPlayerCount.text!)! == 1  {
+        if Int(txtPlayerCount.text!) == nil  || Int(txtPlayerCount.text!)! == 0 ||  Int(txtPlayerCount.text!)! == 1  {
             let alert = UIAlertController(title: "Kimse Yok Mu ?", message: "Bu oyun en az iki kişi ile oynanır", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Yeniden Dene", style: .default, handler: { (action) in
                 
