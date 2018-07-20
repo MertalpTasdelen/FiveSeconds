@@ -12,36 +12,58 @@ import UIKit
 @IBDesignable
 class DesignableTextField: UITextField {
     
-    @IBInspectable var leftImage: UIImage! {
-        didSet {
-            updateView()
+    @IBInspectable var cornerRadius: CGFloat = 5{
+        didSet{
+            refreshCorner(value: cornerRadius)
         }
     }
     
-    @IBInspectable var leftPadding: CGFloat = 0{
-        didSet {
-            updateView()
+    @IBInspectable var borderWidth: CGFloat = 2{
+        didSet{
+            refreshBorderWidth(value: borderWidth)
         }
     }
     
-    func updateView(){
-        leftViewMode = .always
-        
-        let imageView = UIImageView(frame: CGRect(x: leftPadding, y: 0, width: 15, height: 15))
-        imageView.image = #imageLiteral(resourceName: "user")
-        
-        //var width = leftPadding + 15
-        
-        leftView = imageView
+    @IBInspectable var borderColor: UIColor = UIColor.flatWhite{
+        didSet{
+            refreshBorderColor(value: borderColor)
+        }
     }
     
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    //For programmatically created buttons
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        sharedInit()
     }
-    */
+    
+    //For Storyboard/.xib created buttons
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        sharedInit()
+    }
+    
+    //It's allows us for resizing the value of corner in storyboard
+    override func prepareForInterfaceBuilder() {
+        sharedInit()
+    }
+    
+    func sharedInit(){
+        refreshCorner(value: cornerRadius)
+        refreshBorderWidth(value: borderWidth)
+        refreshBorderColor(value: borderColor)
+    }
+    
+    func refreshCorner(value: CGFloat){
+        layer.cornerRadius = value
+    }
+    
+    func refreshBorderColor(value: UIColor){
+        layer.borderColor = value.cgColor
+    }
+    
+    func refreshBorderWidth(value: CGFloat){
+        layer.borderWidth = value
+    }
+    
 
 }

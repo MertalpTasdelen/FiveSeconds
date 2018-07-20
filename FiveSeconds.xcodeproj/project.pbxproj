@@ -12,6 +12,10 @@
 		BB3F8E2E20E523AA000303A3 /* MainGameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F8E2D20E523AA000303A3 /* MainGameScreenViewController.swift */; };
 		BB4201B420DB9C37003146AD /* NumberOfPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4201B320DB9C37003146AD /* NumberOfPlayerViewController.swift */; };
 		BB4201B620DBA513003146AD /* WriteQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4201B520DBA513003146AD /* WriteQuestionViewController.swift */; };
+		BB45EA782101681E00AD8BD8 /* chalk1.wav in Resources */ = {isa = PBXBuildFile; fileRef = BB45EA742101681D00AD8BD8 /* chalk1.wav */; };
+		BB45EA792101681E00AD8BD8 /* chalk3.wav in Resources */ = {isa = PBXBuildFile; fileRef = BB45EA752101681D00AD8BD8 /* chalk3.wav */; };
+		BB45EA7A2101681E00AD8BD8 /* chalk2.wav in Resources */ = {isa = PBXBuildFile; fileRef = BB45EA762101681D00AD8BD8 /* chalk2.wav */; };
+		BB45EA7B2101681E00AD8BD8 /* chalk4.wav in Resources */ = {isa = PBXBuildFile; fileRef = BB45EA772101681E00AD8BD8 /* chalk4.wav */; };
 		BB4B3A654419DBE3F12D0102 /* Pods_FiveSeconds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BEA72D95E8D001D380E72A /* Pods_FiveSeconds.framework */; };
 		BB5B3F5D20E37EDC0089891F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB5B3F5C20E37EDC0089891F /* MessageUI.framework */; };
 		BB63E37520DA420D00761E3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB63E37420DA420D00761E3A /* AppDelegate.swift */; };
@@ -39,6 +43,10 @@
 		BB3F8E2D20E523AA000303A3 /* MainGameScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameScreenViewController.swift; sourceTree = "<group>"; };
 		BB4201B320DB9C37003146AD /* NumberOfPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfPlayerViewController.swift; sourceTree = "<group>"; };
 		BB4201B520DBA513003146AD /* WriteQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteQuestionViewController.swift; sourceTree = "<group>"; };
+		BB45EA742101681D00AD8BD8 /* chalk1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chalk1.wav; sourceTree = "<group>"; };
+		BB45EA752101681D00AD8BD8 /* chalk3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chalk3.wav; sourceTree = "<group>"; };
+		BB45EA762101681D00AD8BD8 /* chalk2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chalk2.wav; sourceTree = "<group>"; };
+		BB45EA772101681E00AD8BD8 /* chalk4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chalk4.wav; sourceTree = "<group>"; };
 		BB5B3F5C20E37EDC0089891F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BB63E37120DA420D00761E3A /* FiveSeconds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FiveSeconds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB63E37420DA420D00761E3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +92,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BB45EA6921015E0300AD8BD8 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				BB45EA742101681D00AD8BD8 /* chalk1.wav */,
+				BB45EA762101681D00AD8BD8 /* chalk2.wav */,
+				BB45EA752101681D00AD8BD8 /* chalk3.wav */,
+				BB45EA772101681E00AD8BD8 /* chalk4.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		BB63E36820DA420D00761E3A = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +124,7 @@
 		BB63E37320DA420D00761E3A /* FiveSeconds */ = {
 			isa = PBXGroup;
 			children = (
+				BB45EA6921015E0300AD8BD8 /* Sounds */,
 				BBEA05F620DB257100C1565B /* fonts */,
 				BB63E38620DA428E00761E3A /* Model */,
 				BB63E38820DA429900761E3A /* Controller */,
@@ -249,11 +269,15 @@
 			files = (
 				BBC017B320EE6DE60098EF8A /* PlayerInformationCellTableViewCell.xib in Resources */,
 				BBA718DB20FF757000264139 /* KGTenThousandReasonsAlt.ttf in Resources */,
+				BB45EA782101681E00AD8BD8 /* chalk1.wav in Resources */,
 				BB63E37F20DA420E00761E3A /* LaunchScreen.storyboard in Resources */,
 				BB63E37C20DA420E00761E3A /* Assets.xcassets in Resources */,
+				BB45EA7B2101681E00AD8BD8 /* chalk4.wav in Resources */,
+				BB45EA7A2101681E00AD8BD8 /* chalk2.wav in Resources */,
 				BBA718D520FF6FA700264139 /* Berton-Roman-trial.ttf in Resources */,
 				BBA718DA20FF757000264139 /* KGTenThousandReasons.ttf in Resources */,
 				BB63E37A20DA420D00761E3A /* Main.storyboard in Resources */,
+				BB45EA792101681E00AD8BD8 /* chalk3.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

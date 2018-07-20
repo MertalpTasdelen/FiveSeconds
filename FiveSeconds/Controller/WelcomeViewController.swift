@@ -8,24 +8,30 @@
 
 import UIKit
 import MessageUI
+import AVFoundation
 
 
 class WelcomeViewController: UIViewController, MFMailComposeViewControllerDelegate{
 
     @IBAction func btnWriteQuestion(_ sender: UIButton) {
+        playSound(sender.tag)
         performSegue(withIdentifier: "writeQuestion", sender: self)
         
     }
     
     @IBAction func btnPlay(_ sender: UIButton) {
+        playSound(sender.tag)
         performSegue(withIdentifier: "setForPlay", sender: self)
     }
     
     @IBAction func btnRules(_ sender: UIButton) {
+        
         performSegue(withIdentifier: "rulesPage", sender: self)
+        playSound(sender.tag)
     }
     
     @IBAction func btnContactUs(_ sender: UIButton) {
+        playSound(sender.tag)
         
         if !MFMailComposeViewController.canSendMail() {
             print("Mail services are not available")
@@ -34,6 +40,9 @@ class WelcomeViewController: UIViewController, MFMailComposeViewControllerDelega
         
         sendEmail()
     }
+    
+    var sound: AVAudioPlayer!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,15 +71,23 @@ class WelcomeViewController: UIViewController, MFMailComposeViewControllerDelega
         mail.setMessageBody("<b>Probleminizi bizimle paylaşın<b>", isHTML: true)
             
         self.present(mail, animated: true)
-        
-        
-        
-        
     }
-    
-    
+
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
+    }
+    
+    func playSound(_ tag: Int){
+        guard let url = Bundle.main.url(forResource: "chalk\(tag)", withExtension: "wav") else {return}
+        
+        do{
+            try sound = AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
+        } catch let error{
+            print(error.localizedDescription)
+        }
+        
+        sound.prepareToPlay()
+        sound.play()
     }
     
 //////END OF THE CLASS DECLARATION

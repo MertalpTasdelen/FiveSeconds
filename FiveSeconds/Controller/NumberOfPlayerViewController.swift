@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 var playerCount : Int  = 0
+var sound: AVAudioPlayer!
 
 
 class NumberOfPlayerViewController: UIViewController, UITextFieldDelegate{
@@ -18,12 +20,13 @@ class NumberOfPlayerViewController: UIViewController, UITextFieldDelegate{
     
     @IBAction func btnCont(_ sender: UIButton) {
         control()
-        
+        playSound(sender.tag)
         performSegue(withIdentifier: "gameScreen", sender: self)
         //txtPlayerCount.text = ""
         
     }
     @IBAction func btnBack(_ sender: UIButton) {
+        playSound(sender.tag)
         self.dismiss(animated: true, completion: nil)
         
     }
@@ -66,6 +69,19 @@ class NumberOfPlayerViewController: UIViewController, UITextFieldDelegate{
         }else{
             performSegue(withIdentifier: "gameScreen", sender: self)
         }
+    }
+    
+    func playSound(_ tag: Int){
+        guard let url = Bundle.main.url(forResource: "chalk\(tag)", withExtension: "wav") else {return}
+        
+        do{
+            try sound = AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
+        } catch let error{
+            print(error.localizedDescription)
+        }
+        
+        sound.prepareToPlay()
+        sound.play()
     }
 
     

@@ -117,8 +117,6 @@ class MainGameScreenViewController : UIViewController {
         ghostCircle()
         proggressView()
         setupLabel()
-        initUserLocation()
-        
 
     }
     
@@ -141,7 +139,7 @@ class MainGameScreenViewController : UIViewController {
         ghostLayer.lineWidth = 7
         ghostLayer.strokeColor = UIColor.flatGrayDark.cgColor
         ghostLayer.lineCap = kCALineCapRound
-        ghostLayer.fillColor = UIColor.flatOrange.cgColor
+        ghostLayer.fillColor = UIColor.clear.cgColor
         ghostLayer.position = lblProgressViewLocation.center
         view.layer.addSublayer(ghostLayer)
     }
@@ -156,7 +154,7 @@ class MainGameScreenViewController : UIViewController {
         
         pulsingLayer.strokeColor = UIColor.clear.cgColor
         pulsingLayer.lineCap = kCALineCapRound
-        pulsingLayer.fillColor = UIColor.flatForestGreenDark.withAlphaComponent(0.4).cgColor
+        pulsingLayer.fillColor = UIColor.flatRed.withAlphaComponent(0.4).cgColor
         pulsingLayer.position = lblProgressViewLocation.center
         
         view.layer.addSublayer(pulsingLayer)
@@ -201,7 +199,7 @@ class MainGameScreenViewController : UIViewController {
         shapeLayer.path = circularPath.cgPath
         
         shapeLayer.lineWidth = 9
-        shapeLayer.strokeColor = UIColor.flatGreen.cgColor
+        shapeLayer.strokeColor = UIColor.flatWhite.cgColor
         shapeLayer.lineCap = kCALineCapRound
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.position = lblProgressViewLocation.center
@@ -225,33 +223,8 @@ class MainGameScreenViewController : UIViewController {
         
         shapeLayer.add(basicAnim, forKey: "SoEasy")
         startTimer()
-//        let percentage = CGFloat(seconds) / CGFloat(totalSeconds)
-//        print(percentage)
-//        shapeLayer.strokeEnd = percentage
-
-    }
-    
-    func initUserLocation(){
-        for value in playerArray {
-            let playerNameImage: UIView = {
-               var label = UILabel()
-                label.text = value.name
-                label.font = UIFont.init(name: "KGTenThousandReasons", size: 15.0)
-                label.textColor = UIColor.flatWhite
-                return label
-            }()
-            view.addSubview(playerNameImage)
-            playerNameImage.translatesAutoresizingMaskIntoConstraints = false 
-            playerNameImage.bottomAnchor.constraint(equalTo: progressPointer.topAnchor, constant: 15).isActive = true
-//            playerNameImage.widthAnchor.constraint(equalToConstant: 45.0).isActive = true
-//            playerNameImage.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-
-            
-        }
         
     }
-    
-
     
     //MARK: Start the timer
     func startTimer(){
