@@ -17,7 +17,7 @@ class WriteQuestionViewController: UIViewController, UITextViewDelegate{
 //    let DBRef = Database.database().reference().child("questions")
 //    var numOfChilds: [Int] = []
     var tmpQuestion: String = ""
-    let realm = try! Realm()
+    lazy var realm = try! Realm()
     var sound: AVAudioPlayer!
     
     @IBOutlet weak var txtCustomQuestion: UITextView!

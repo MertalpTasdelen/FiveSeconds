@@ -14,11 +14,6 @@ import AVFoundation
 
 class MainGameScreenViewController: UIViewController {
     
-//    public var screenWidth: CGFloat {
-//        return UIScreen.main.bounds.width
-//    }
-//
-    //MARK: IBOutlest
     @IBOutlet weak var lblTurnSpecifier: UILabel!
     
     @IBOutlet weak var lblProgressViewLocation: UIView!
@@ -36,16 +31,11 @@ class MainGameScreenViewController: UIViewController {
         label.backgroundColor = UIColor.black.withAlphaComponent(0)
         return label
     }()
+    @IBOutlet weak var lblFistPlace: UILabel!
     
-//    let btnQuestions: UIButton = {
-//        let button = UIButton()
-//        button.setBackgroundImage(#imageLiteral(resourceName: "PostPaper"), for: .normal)
-//        button.setTitleColor( UIColor.flatBlack, for: .normal)
-//        return button
-//    }()
+    @IBOutlet weak var lblSecondPlace: UILabel!
     
-
-    //MARK: IBActionss
+//    @IBOutlet weak var lblThirdPlace: UILabel!
     
     @IBAction func btnUncoverQuestion(_ sender: RoundedButton) {
         if btnState == 0{
@@ -59,9 +49,9 @@ class MainGameScreenViewController: UIViewController {
         } else if btnState == 1 {
             playSound(sender.tag)
 
-            resumePulsinCircle()
+//            resumePulsinCircle()
             customCircularProgress()
-            animatePulsingCircle()
+//            animatePulsingCircle()
             sender.setTitle("Tamam", for: .normal)
             sender.setTitleColor(UIColor.flatWhite, for: .normal)
             btnState = btnState + 1
@@ -71,7 +61,7 @@ class MainGameScreenViewController: UIViewController {
         } else if btnState == 2 {
             playSound(sender.tag)
 
-            stopPulsingCircle()
+//            stopPulsingCircle()
             stopTimer()
             alertOnDoneOrFinish(sender: sender)
             
@@ -87,7 +77,7 @@ class MainGameScreenViewController: UIViewController {
     //MARK: variables and declarations
     
     var sound: AVAudioPlayer!
-    let realm = try! Realm()
+    lazy var realm = try! Realm()
     var playerArray: [Player] = [] //container for the player
     var questionArray: Results<Question>?
     var turn: Int = 0 //which player should answer the question
@@ -98,6 +88,7 @@ class MainGameScreenViewController: UIViewController {
     var isTimerRunning = false
     var questionNumber = 0 //specifies the qustion number
     var screenWidth = CGFloat(UIScreen.main.bounds.width)
+    
     //MARK: For the progress view declerations
     let shapeLayer = CAShapeLayer()
     let ghostLayer = CAShapeLayer()
@@ -118,10 +109,17 @@ class MainGameScreenViewController: UIViewController {
         //Initialization for the first player
         lblWhoWillPlay(playerTurn: turn)
         loadQuestions()
-        pulsingCircle()
+//        pulsingCircle()
         ghostCircle()
         proggressView()
         setupLabel()
+        ranking()
+        print("deneme")
+        
+//        lblThirdPlace.text = "-"
+//        lblFistPlace.text = "-"
+//        lblSecondPlace.text = "-"
+
 
     }
     
@@ -132,13 +130,7 @@ class MainGameScreenViewController: UIViewController {
     }
     
     func ghostCircle(){
-//        let center = view.center
 
-        if screenWidth > 374{
-            circularPath = UIBezierPath(arcCenter: .zero, radius: 80.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-        }
-        
-        
         ghostLayer.path = circularPath.cgPath
         
         ghostLayer.lineWidth = 7
@@ -146,59 +138,55 @@ class MainGameScreenViewController: UIViewController {
         ghostLayer.lineCap = kCALineCapRound
         ghostLayer.fillColor = UIColor.clear.cgColor
         ghostLayer.position = lblProgressViewLocation.center
-        view.layer.addSublayer(ghostLayer)
+        lblProgressViewLocation.layer.addSublayer(ghostLayer)
     }
+//
+//    func pulsingCircle(){
+//
+//        if screenWidth > 374{
+//            circularPath = UIBezierPath(arcCenter: .zero, radius: 80.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+//        }
+//
+//        pulsingLayer.path = circularPath.cgPath
+//
+//        pulsingLayer.strokeColor = UIColor.clear.cgColor
+//        pulsingLayer.lineCap = kCALineCapRound
+//        pulsingLayer.fillColor = UIColor.flatRed.withAlphaComponent(0.4).cgColor
+//        pulsingLayer.position = lblProgressViewLocation.center
+//
+//        view.layer.addSublayer(pulsingLayer)
+//    }
+//
+//    func animatePulsingCircle(){
+//
+//        if screenWidth > 374{
+//            circularPath = UIBezierPath(arcCenter: .zero, radius: 80.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
+//        }
+//
+//        anim.toValue = 1.3
+//        anim.duration = 0.8
+//        anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+//        anim.autoreverses = true
+//        anim.repeatCount = Float.infinity
+//
+//        pulsingLayer.add(anim, forKey: "pulsingLayer")
+//    }
     
-    func pulsingCircle(){
-        
-        if screenWidth > 374{
-            circularPath = UIBezierPath(arcCenter: .zero, radius: 80.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-        }
-       
-        pulsingLayer.path = circularPath.cgPath
-        
-        pulsingLayer.strokeColor = UIColor.clear.cgColor
-        pulsingLayer.lineCap = kCALineCapRound
-        pulsingLayer.fillColor = UIColor.flatRed.withAlphaComponent(0.4).cgColor
-        pulsingLayer.position = lblProgressViewLocation.center
-        
-        view.layer.addSublayer(pulsingLayer)
-    }
+//    func stopPulsingCircle(){
+//        pulsingLayer.speed = 0.0
+//    }
     
-    func animatePulsingCircle(){
-        
-        if screenWidth > 374{
-            circularPath = UIBezierPath(arcCenter: .zero, radius: 80.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-        }
-
-        anim.toValue = 1.3
-        anim.duration = 0.8
-        anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        anim.autoreverses = true
-        anim.repeatCount = Float.infinity
-        
-        pulsingLayer.add(anim, forKey: "pulsingLayer")
-    }
-    
-    func stopPulsingCircle(){
-        pulsingLayer.speed = 0.0
-    }
-    
-    func resumePulsinCircle(){
-        let pausedTime = pulsingLayer.timeOffset
-        pulsingLayer.speed = 1.0
-        pulsingLayer.timeOffset = 0.0
-        pulsingLayer.beginTime = 0.0
-        let timeSincePause = pulsingLayer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-        pulsingLayer.beginTime = timeSincePause
-        
-    }
+//    func resumePulsinCircle(){
+//        let pausedTime = pulsingLayer.timeOffset
+//        pulsingLayer.speed = 1.0
+//        pulsingLayer.timeOffset = 0.0
+//        pulsingLayer.beginTime = 0.0
+//        let timeSincePause = pulsingLayer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+//        pulsingLayer.beginTime = timeSincePause
+//
+//    }
     
     func proggressView(){
-        
-        if screenWidth > 374{
-            circularPath = UIBezierPath(arcCenter: .zero, radius: 80.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-        }
         
 //       Main layer for the progressview
         shapeLayer.path = circularPath.cgPath
@@ -243,7 +231,7 @@ class MainGameScreenViewController: UIViewController {
         if seconds < 0.01  {
             timer.invalidate()
             alertOnDoneOrFinish(sender: btnProgressView)
-            stopPulsingCircle()
+//            stopPulsingCircle()
         }else {
             seconds = seconds - 0.01
             lblFiveSeconds.text = String(format: "%.2f", seconds)
@@ -279,6 +267,7 @@ class MainGameScreenViewController: UIViewController {
         lblTurnSpecifier.textColor = UIColor.flatWhite
         lblTurnSpecifier.textAlignment = .center
         lblTurnSpecifier.font = UIFont.init(name: "KGTenThousandReasons", size: 17.0)
+        lblFistPlace.text = "\(playerArray[turn].name)"
         
     }
     
@@ -286,30 +275,59 @@ class MainGameScreenViewController: UIViewController {
         let alert = UIAlertController(title: "Sizce cevap doğru mu", message: "Seçimin yap", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Doğru", style: .default, handler: { (trueAction) in
             self.playerArray[self.turn].point += 1
-            self.turn += 1
-            if self.playerArray.count == self.turn{
+            if self.playerArray.count == self.turn + 1 {
                 self.turn = 0
+            }else {
+                self.turn += 1
             }
+
             self.updateQuestionScreen(button: sender)
             self.btnState = 0
             self.resetTimer()
             self.lblWhoWillPlay(playerTurn: self.turn)
             self.btnUncoverQuestion.setTitle("", for: .normal)
+            self.playerArray.sort(by: self.sorterForPoint(this:that:))
+            self.ranking()
             
         }))
         alert.addAction(UIAlertAction(title: "Yanlış", style: .default, handler: { (wrongAction) in
-            self.turn += 1
-            if self.playerArray.count == self.turn {
+            
+            if self.playerArray.count == self.turn + 1 {
                 self.turn = 0
+            }else {
+                self.turn += 1
             }
             self.updateQuestionScreen(button: sender)
             self.btnState = 0
             self.resetTimer()
             self.lblWhoWillPlay(playerTurn: self.turn)
             self.btnUncoverQuestion.setTitle("", for: .normal)
-           
+            self.ranking()
+            
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func sorterForPoint(this: Player, that: Player) -> Bool {
+        return this.point > that.point
+    }
+    
+    func ranking(){
+        var sortedArray: [Player] = []
+        
+        for item in playerArray {
+            sortedArray.append(item)
+        }
+        
+        sortedArray.sort { $0.point > $1.point }
+        lblFistPlace.text = sortedArray[0].name
+        lblSecondPlace.text = sortedArray[1].name
+        
+//        for item in sortedArray {
+//            print("\(item.name)    \(item.point)    \(turn)" )
+//        }
+//        print("")
     }
     
     

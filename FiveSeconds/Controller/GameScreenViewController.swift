@@ -62,6 +62,9 @@ class GameScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.txtPlayerName.text = "Oyuncu \(playerNumber + 1)"
         playerNumber = playerNumber + 1
         cell.delegate = self
+        var playerUnknown = Player(name: cell.txtPlayerName.text!, point: 0)
+        tempPlayers.append(playerUnknown)
+
 
         return cell
     }
