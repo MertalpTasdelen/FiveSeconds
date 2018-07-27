@@ -126,6 +126,7 @@
 		BB63E37320DA420D00761E3A /* FiveSeconds */ = {
 			isa = PBXGroup;
 			children = (
+				BB063D0E2108B846008CAF84 /* default.realm */,
 				BB45EA6921015E0300AD8BD8 /* Sounds */,
 				BBEA05F620DB257100C1565B /* fonts */,
 				BB63E38620DA428E00761E3A /* Model */,
@@ -140,7 +141,6 @@
 		BB63E38620DA428E00761E3A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BB063D0E2108B846008CAF84 /* default.realm */,
 				BBA0E0AB20EF58E30003BA79 /* Player.swift */,
 				BB38F20620F56F6F00123B51 /* Question.swift */,
 			);

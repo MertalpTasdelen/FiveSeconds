@@ -134,7 +134,7 @@ class MainGameScreenViewController: UIViewController {
         ghostLayer.path = circularPath.cgPath
         
         ghostLayer.lineWidth = 7
-        ghostLayer.strokeColor = UIColor.flatGrayDark.cgColor
+        ghostLayer.strokeColor = UIColor.flatGrayDark().cgColor
         ghostLayer.lineCap = kCALineCapRound
         ghostLayer.fillColor = UIColor.clear.cgColor
         ghostLayer.position = lblProgressViewLocation.center
@@ -345,44 +345,5 @@ class MainGameScreenViewController: UIViewController {
         sound.play()
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+//END OF THE CLASS DECLARATION
 }

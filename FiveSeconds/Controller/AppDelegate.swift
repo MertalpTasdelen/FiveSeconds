@@ -19,13 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         application.statusBarStyle = .lightContent
 //        print(Realm.Configuration.defaultConfiguration.fileURL)  //For getting the path
-        let bundlePath = Bundle.main.path(forResource: "default", ofType: "realm")
+        let bundlePath = Bundle.main.path(forResource: "default", ofType: ".realm")
         let destPath = Realm.Configuration.defaultConfiguration.fileURL?.path
         let fileManager = FileManager.default
         
         if fileManager.fileExists(atPath: destPath!) {
             //File exist, do nothing
-            //print(fileManager.fileExists(atPath: destPath!))
+//            print(fileManager.fileExists(atPath: destPath!))
         } else {
             do {
                 //Copy file from bundle to Realm default path
