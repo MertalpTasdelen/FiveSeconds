@@ -46,6 +46,7 @@ class WelcomeViewController: UIViewController, MFMailComposeViewControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNeedsStatusBarAppearanceUpdate()
         
     }
     
@@ -54,7 +55,7 @@ class WelcomeViewController: UIViewController, MFMailComposeViewControllerDelega
         if !MFMailComposeViewController.canSendMail() {
             print("Mail services are not available")
 
-            let alert = UIAlertController(title: "HATA !", message: "Mail açılırken bir sorun oluştu", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "HATA !", message: "Mail açılırken bir sorun oluştu", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Yeniden Dene", style: .default, handler: { (action) in
                 
             }))

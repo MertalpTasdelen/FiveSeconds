@@ -77,7 +77,7 @@ class MainGameScreenViewController: UIViewController {
     //MARK: variables and declarations
     
     var sound: AVAudioPlayer!
-    lazy var realm = try! Realm()
+    var realm = try! Realm()
     var playerArray: [Player] = [] //container for the player
     var questionArray: Results<Question>?
     var turn: Int = 0 //which player should answer the question
@@ -109,16 +109,15 @@ class MainGameScreenViewController: UIViewController {
         //Initialization for the first player
         lblWhoWillPlay(playerTurn: turn)
         loadQuestions()
-//        pulsingCircle()
+        
+        
+//      pulsingCircle()
         ghostCircle()
         proggressView()
         setupLabel()
         ranking()
         print("deneme")
-        
-//        lblThirdPlace.text = "-"
-//        lblFistPlace.text = "-"
-//        lblSecondPlace.text = "-"
+
 
 
     }
@@ -135,7 +134,7 @@ class MainGameScreenViewController: UIViewController {
         
         ghostLayer.lineWidth = 7
         ghostLayer.strokeColor = UIColor.flatGrayDark().cgColor
-        ghostLayer.lineCap = kCALineCapRound
+        ghostLayer.lineCap = CAShapeLayerLineCap.round
         ghostLayer.fillColor = UIColor.clear.cgColor
         ghostLayer.position = lblProgressViewLocation.center
         lblProgressViewLocation.layer.addSublayer(ghostLayer)
@@ -193,7 +192,7 @@ class MainGameScreenViewController: UIViewController {
         
         shapeLayer.lineWidth = 9
         shapeLayer.strokeColor = UIColor.flatWhite.cgColor
-        shapeLayer.lineCap = kCALineCapRound
+        shapeLayer.lineCap = CAShapeLayerLineCap.round
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.position = lblProgressViewLocation.center
         shapeLayer.transform = CATransform3DMakeRotation(-CGFloat.pi/2, 0, 0, 1)
@@ -211,7 +210,7 @@ class MainGameScreenViewController: UIViewController {
         basicAnim.duration = 5
         
         // Two lines code for the end of the anim.
-        basicAnim.fillMode = kCAFillModeForwards
+        basicAnim.fillMode = CAMediaTimingFillMode.forwards
         basicAnim.isRemovedOnCompletion = false
         
         shapeLayer.add(basicAnim, forKey: "SoEasy")
@@ -254,6 +253,8 @@ class MainGameScreenViewController: UIViewController {
     
     func loadQuestions(){
          questionArray = realm.objects(Question.self) // pull the all questions in variable
+        print(questionArray?.count ?? 0)
+
     }
     
     func updateQuestionScreen(button: RoundedButton){
@@ -324,12 +325,7 @@ class MainGameScreenViewController: UIViewController {
         lblFistPlace.text = sortedArray[0].name
         lblSecondPlace.text = sortedArray[1].name
         
-//        for item in sortedArray {
-//            print("\(item.name)    \(item.point)    \(turn)" )
-//        }
-//        print("")
     }
-    
     
     func playSound(_ tag: Int){
         
@@ -343,6 +339,10 @@ class MainGameScreenViewController: UIViewController {
         
         sound.prepareToPlay()
         sound.play()
+    }
+    
+    func playerMakeFatality(players: [Player]){
+        //func that finishing the game
     }
 
 //END OF THE CLASS DECLARATION

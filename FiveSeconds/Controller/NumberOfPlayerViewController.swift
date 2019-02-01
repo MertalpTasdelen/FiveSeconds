@@ -33,6 +33,7 @@ class NumberOfPlayerViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNeedsStatusBarAppearanceUpdate()
         txtPlayerCount.textAlignment = .center
         txtPlayerCount.text = "\(2)"
         playerCount = 2
@@ -62,7 +63,7 @@ class NumberOfPlayerViewController: UIViewController, UITextFieldDelegate{
     //MARK: Control for the vlaid player number
     func control(){
         if Int(txtPlayerCount.text!) == nil  || Int(txtPlayerCount.text!)! == 0 ||  Int(txtPlayerCount.text!)! == 1  {
-            let alert = UIAlertController(title: "Kimse Yok Mu ?", message: "Bu oyun en az iki kişi ile oynanır", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Kimse Yok Mu ?", message: "Bu oyun en az iki kişi ile oynanır", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Yeniden Dene", style: .default, handler: { (action) in
                 
             }))

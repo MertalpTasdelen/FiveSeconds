@@ -62,7 +62,7 @@ class GameScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.txtPlayerName.text = "Oyuncu \(playerNumber + 1)"
         playerNumber = playerNumber + 1
         cell.delegate = self
-        var playerUnknown = Player(name: cell.txtPlayerName.text!, point: 0)
+        let playerUnknown = Player(name: cell.txtPlayerName.text!, point: 0)
         tempPlayers.append(playerUnknown)
 
 
@@ -70,14 +70,14 @@ class GameScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func getTextFieldName(_ sender: PlayerInformationCellTableViewCell) {
-        var playerUnknown = Player(name: sender.txtPlayerName.text!, point: 0)
+        let playerUnknown = Player(name: sender.txtPlayerName.text!, point: 0)
         tempPlayers.append(playerUnknown)
         
     }
     
     
     func configureTableView(){
-        tblPlayerNames.rowHeight = UITableViewAutomaticDimension
+        tblPlayerNames.rowHeight = UITableView.automaticDimension
         tblPlayerNames.estimatedRowHeight = 50.0
     }
   

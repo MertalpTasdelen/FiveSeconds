@@ -16,8 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        application.statusBarStyle = .lightContent
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 //        print(Realm.Configuration.defaultConfiguration.fileURL)  //For getting the path
         let bundlePath = Bundle.main.path(forResource: "default", ofType: ".realm")
         let destPath = Realm.Configuration.defaultConfiguration.fileURL?.path
@@ -34,37 +33,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("\n",error)
             }
         }
- 
-//        let defaultRealmPath = Realm.Configuration.defaultConfiguration.fileURL!
-//        let bundleReamPath = Bundle.main.path(forResource: "default", ofType:"realm")
-//
-//        if !FileManager.default.fileExists(atPath: defaultRealmPath.path) {
-//            do
-//            {
-//                try FileManager.default.copyItem(atPath: bundleReamPath!, toPath: defaultRealmPath.path)
-//            }
-//            catch let error as NSError {
-//                // Catch fires here, with an NSError being thrown
-//                print("error occurred, here are the details:\n \(error)")
-//            }
-//        }
         
         return true
     }
 
-    func applicationWillTerminate(_ application: UIApplication) {
-
-
-    }
+    func applicationWillTerminate(_ application: UIApplication) {}
     
-
-    
-//    func applicationDidFinishLaunching(_ application: UIApplication) {
-//        UIApplication.shared.statusBarStyle = .lightContent
-//    }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
 //        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
 }
