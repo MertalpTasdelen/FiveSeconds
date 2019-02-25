@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 import ChameleonFramework
 import AVFoundation
 
@@ -41,7 +40,7 @@ class MainGameScreenViewController: UIViewController {
         if btnState == 0{
             playSound(sender.tag)
             //sadece soru görünür ve buton başlata dönüşür
-            btnUncoverQuestion.setTitle(questionArray?[questionNumber].title ?? "Soru yok", for: .normal)
+//            btnUncoverQuestion.setTitle(questionArray?[questionNumber].title ?? "Soru yok", for: .normal)
             sender.setTitle("Başlat", for: .normal)
             sender.setTitleColor(UIColor.flatWhite, for: .normal)
             btnState = btnState + 1
@@ -77,9 +76,7 @@ class MainGameScreenViewController: UIViewController {
     //MARK: variables and declarations
     
     var sound: AVAudioPlayer!
-    var realm = try! Realm()
     var playerArray: [Player] = [] //container for the player
-    var questionArray: Results<Question>?
     var turn: Int = 0 //which player should answer the question
     let totalSeconds = Double(5.00)
     var seconds = Double(5.00)
@@ -252,8 +249,8 @@ class MainGameScreenViewController: UIViewController {
     }
     
     func loadQuestions(){
-         questionArray = realm.objects(Question.self) // pull the all questions in variable
-        print(questionArray?.count ?? 0)
+//         questionArray = realm.objects(Question.self) // pull the all questions in variable
+//        print(questionArray?.count ?? 0)
 
     }
     

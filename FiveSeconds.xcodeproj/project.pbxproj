@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BB01E3982102750F009516B8 /* MainGameScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F8E2D20E523AA000303A3 /* MainGameScreenViewController.swift */; };
-		BB063D0F2108B846008CAF84 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = BB063D0E2108B846008CAF84 /* default.realm */; };
 		BB37B95520E2514300453ACA /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB37B95420E2514300453ACA /* RulesViewController.swift */; };
 		BB38F20720F56F6F00123B51 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB38F20620F56F6F00123B51 /* Question.swift */; };
 		BB4201B420DB9C37003146AD /* NumberOfPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4201B320DB9C37003146AD /* NumberOfPlayerViewController.swift */; };
@@ -37,7 +36,6 @@
 
 /* Begin PBXFileReference section */
 		382E106E8C670496C34923F4 /* Pods-FiveSeconds.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FiveSeconds.release.xcconfig"; path = "Pods/Target Support Files/Pods-FiveSeconds/Pods-FiveSeconds.release.xcconfig"; sourceTree = "<group>"; };
-		BB063D0E2108B846008CAF84 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
 		BB07E7A320E0123100176CA0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		BB07E7A420E0123100176CA0 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		BB37B95420E2514300453ACA /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 		BB63E37320DA420D00761E3A /* FiveSeconds */ = {
 			isa = PBXGroup;
 			children = (
-				BB063D0E2108B846008CAF84 /* default.realm */,
 				BB45EA6921015E0300AD8BD8 /* Sounds */,
 				BBEA05F620DB257100C1565B /* fonts */,
 				BB63E38620DA428E00761E3A /* Model */,
@@ -275,7 +272,6 @@
 				BB45EA782101681E00AD8BD8 /* chalk1.wav in Resources */,
 				BB63E37F20DA420E00761E3A /* LaunchScreen.storyboard in Resources */,
 				BB63E37C20DA420E00761E3A /* Assets.xcassets in Resources */,
-				BB063D0F2108B846008CAF84 /* default.realm in Resources */,
 				BB906F69210471C6000C03BB /* chalk4.wav in Resources */,
 				BB45EA7A2101681E00AD8BD8 /* chalk2.wav in Resources */,
 				BBA718D520FF6FA700264139 /* Berton-Roman-trial.ttf in Resources */,

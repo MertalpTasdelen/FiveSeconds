@@ -58,8 +58,7 @@ class WriteQuestionViewController: UIViewController, UITextViewDelegate{
     func writeQuestion(){
         
         let newQuestion = Question()
-        newQuestion.title = txtCustomQuestion.text!
-        newQuestion.date = Date.init()
+
         
         save(question: newQuestion)
         
@@ -69,13 +68,6 @@ class WriteQuestionViewController: UIViewController, UITextViewDelegate{
     //MARK: Save the question
     
     func save(question: Question){
-        do {
-            try realm.write {
-                 realm.add(question)
-            }
-        } catch {
-            print("Cant write the data \(error)")
-        }
         
     }
     

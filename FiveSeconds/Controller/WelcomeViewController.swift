@@ -42,11 +42,18 @@ class WelcomeViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     var sound: AVAudioPlayer!
-    
+    var arrayOfQuestions = [Question]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNeedsStatusBarAppearanceUpdate()
+        
+        
+        let question = Question()
+        question.delegate = self
+        question.downloadQuestions()
+        
+       
         
     }
     
@@ -92,5 +99,17 @@ class WelcomeViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
 //////END OF THE CLASS DECLARATION
+}
+
+extension WelcomeViewController: QuestionProtocol {
+    func questionsDownloaded(items: NSArray) {
+        var questionBulk = NSArray()
+        questionBulk = items
+        
+        for item in 0 ..< questionBulk.count {
+            arrayOfQuestions.append(questionBulk[item] as! Question)
+        }
+        
+    }
 }
 
