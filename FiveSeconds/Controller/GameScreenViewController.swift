@@ -28,9 +28,10 @@ class GameScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         self.dismiss(animated: true, completion: nil)
     }
     
-    var playerCount : Int = 0
+    var playerCount = 0
     var playerNumber = 0
     var tempPlayers: [Player] = []
+    var questionContainer = [Question]()
     var sound: AVAudioPlayer!
     
     override func viewDidLoad() {
@@ -90,6 +91,7 @@ class GameScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             for item in tempPlayers{
                 nextVC.playerArray.append(item)
             }
+            nextVC.questionArray = questionContainer
             //After this declaration we can use the MainGameScreenViewController variables in this screen!!!!
 
         }

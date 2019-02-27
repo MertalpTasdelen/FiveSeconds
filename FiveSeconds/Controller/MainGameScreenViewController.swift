@@ -23,13 +23,14 @@ class MainGameScreenViewController: UIViewController {
     
     let lblFiveSeconds: UILabel = {
         let label = UILabel()
-        label.text = "5.00"
+        label.text = "5.0"
         label.textAlignment = .center
         label.textColor = UIColor.flatWhite
         label.font = UIFont.boldSystemFont(ofSize: 32)
         label.backgroundColor = UIColor.black.withAlphaComponent(0)
         return label
     }()
+    
     @IBOutlet weak var lblFistPlace: UILabel!
     
     @IBOutlet weak var lblSecondPlace: UILabel!
@@ -40,7 +41,7 @@ class MainGameScreenViewController: UIViewController {
         if btnState == 0{
             playSound(sender.tag)
             //sadece soru görünür ve buton başlata dönüşür
-//            btnUncoverQuestion.setTitle(questionArray?[questionNumber].title ?? "Soru yok", for: .normal)
+            btnUncoverQuestion.setTitle(questionArray[questionNumber].q_question, for: .normal)
             sender.setTitle("Başlat", for: .normal)
             sender.setTitleColor(UIColor.flatWhite, for: .normal)
             btnState = btnState + 1
@@ -77,9 +78,10 @@ class MainGameScreenViewController: UIViewController {
     
     var sound: AVAudioPlayer!
     var playerArray: [Player] = [] //container for the player
+    var questionArray = [Question]() //contaner for questions
     var turn: Int = 0 //which player should answer the question
-    let totalSeconds = Double(5.00)
-    var seconds = Double(5.00)
+    let totalSeconds = Double(5.0)
+    var seconds = Double(5.0)
     var timer = Timer()
     var btnState = 0 //what is the state for the big button
     var isTimerRunning = false
@@ -95,96 +97,40 @@ class MainGameScreenViewController: UIViewController {
     //pulse animation var
     let anim = CABasicAnimation(keyPath: "transform.scale")
 
-    // burası çalışmıyor
-    override var prefersStatusBarHidden: Bool{
-        return true
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Initialization for the first player
         lblWhoWillPlay(playerTurn: turn)
-        loadQuestions()
-        
-        
-//      pulsingCircle()
+       
         ghostCircle()
         proggressView()
         setupLabel()
         ranking()
-        print("deneme")
-
-
 
     }
     
     func setupLabel(){
-        view.addSubview(lblFiveSeconds)
-        lblFiveSeconds.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        lblFiveSeconds.center = lblProgressViewLocation.center
+        lblProgressViewLocation.addSubview(lblFiveSeconds)
+
+        lblFiveSeconds.translatesAutoresizingMaskIntoConstraints = false
+        lblFiveSeconds.centerXAnchor.constraint(equalTo: lblProgressViewLocation.centerXAnchor).isActive = true
+        lblFiveSeconds.centerYAnchor.constraint(equalTo: lblProgressViewLocation.centerYAnchor).isActive = true
+
     }
     
     func ghostCircle(){
-
         ghostLayer.path = circularPath.cgPath
         
-        ghostLayer.lineWidth = 7
-        ghostLayer.strokeColor = UIColor.flatGrayDark().cgColor
+        ghostLayer.lineWidth = 11
+        ghostLayer.strokeColor = UIColor.lightGray.cgColor
         ghostLayer.lineCap = CAShapeLayerLineCap.round
         ghostLayer.fillColor = UIColor.clear.cgColor
         ghostLayer.position = lblProgressViewLocation.center
-        lblProgressViewLocation.layer.addSublayer(ghostLayer)
+        view.layer.addSublayer(ghostLayer)
     }
-//
-//    func pulsingCircle(){
-//
-//        if screenWidth > 374{
-//            circularPath = UIBezierPath(arcCenter: .zero, radius: 80.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-//        }
-//
-//        pulsingLayer.path = circularPath.cgPath
-//
-//        pulsingLayer.strokeColor = UIColor.clear.cgColor
-//        pulsingLayer.lineCap = kCALineCapRound
-//        pulsingLayer.fillColor = UIColor.flatRed.withAlphaComponent(0.4).cgColor
-//        pulsingLayer.position = lblProgressViewLocation.center
-//
-//        view.layer.addSublayer(pulsingLayer)
-//    }
-//
-//    func animatePulsingCircle(){
-//
-//        if screenWidth > 374{
-//            circularPath = UIBezierPath(arcCenter: .zero, radius: 80.0, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true)
-//        }
-//
-//        anim.toValue = 1.3
-//        anim.duration = 0.8
-//        anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-//        anim.autoreverses = true
-//        anim.repeatCount = Float.infinity
-//
-//        pulsingLayer.add(anim, forKey: "pulsingLayer")
-//    }
-    
-//    func stopPulsingCircle(){
-//        pulsingLayer.speed = 0.0
-//    }
-    
-//    func resumePulsinCircle(){
-//        let pausedTime = pulsingLayer.timeOffset
-//        pulsingLayer.speed = 1.0
-//        pulsingLayer.timeOffset = 0.0
-//        pulsingLayer.beginTime = 0.0
-//        let timeSincePause = pulsingLayer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-//        pulsingLayer.beginTime = timeSincePause
-//
-//    }
     
     func proggressView(){
-        
-//       Main layer for the progressview
+        //       Main layer for the progressview
         shapeLayer.path = circularPath.cgPath
         
         shapeLayer.lineWidth = 9
@@ -196,9 +142,9 @@ class MainGameScreenViewController: UIViewController {
         shapeLayer.strokeEnd = 0
         
         view.layer.addSublayer(shapeLayer)
-    
+        
     }
-    
+
     func customCircularProgress(){
         
         let basicAnim = CABasicAnimation(keyPath: "strokeEnd")
@@ -230,7 +176,7 @@ class MainGameScreenViewController: UIViewController {
 //            stopPulsingCircle()
         }else {
             seconds = seconds - 0.01
-            lblFiveSeconds.text = String(format: "%.2f", seconds)
+            lblFiveSeconds.text = String(format: "%.1f", seconds)
         }
     }
     
@@ -246,12 +192,6 @@ class MainGameScreenViewController: UIViewController {
         seconds = totalSeconds
         lblFiveSeconds.text = "\(seconds)"
         isTimerRunning = false
-    }
-    
-    func loadQuestions(){
-//         questionArray = realm.objects(Question.self) // pull the all questions in variable
-//        print(questionArray?.count ?? 0)
-
     }
     
     func updateQuestionScreen(button: RoundedButton){

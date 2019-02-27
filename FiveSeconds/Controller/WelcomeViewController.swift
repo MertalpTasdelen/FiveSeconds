@@ -57,6 +57,13 @@ class WelcomeViewController: UIViewController, MFMailComposeViewControllerDelega
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "setForPlay" {
+            let destVC = segue.destination as! NumberOfPlayerViewController
+            destVC.questionDocker = arrayOfQuestions
+        }
+    }
+    
     func sendEmail(){
 
         if !MFMailComposeViewController.canSendMail() {

@@ -10,11 +10,14 @@ import Foundation
 import UIKit
 import AVFoundation
 
-var playerCount : Int  = 0
-var sound: AVAudioPlayer!
+
 
 
 class NumberOfPlayerViewController: UIViewController, UITextFieldDelegate{
+    
+    var playerCount = 0
+    var questionDocker = [Question]()
+    var sound: AVAudioPlayer!
     
     @IBOutlet weak var txtPlayerCount: UITextField!
     
@@ -45,13 +48,14 @@ class NumberOfPlayerViewController: UIViewController, UITextFieldDelegate{
         if segue.identifier == "gameScreen" {
             let secondVC = segue.destination as! GameScreenViewController
             secondVC.playerCount = Int(txtPlayerCount.text!)!
+            secondVC.questionContainer = questionDocker
         }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.5){
             //textField.keyboardType = UIKeyboardType.numberPad
-            playerCount = Int(textField.text!)!
+            self.playerCount = Int(textField.text!)!
         }
     }
     
