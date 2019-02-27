@@ -8,9 +8,6 @@ target 'FiveSeconds' do
   # Pods for FiveSeconds
   pod 'SVProgressHUD'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
-  pod 'RealmSwift'
-
-
 end
 
 

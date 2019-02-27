@@ -2,22 +2,14 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - Realm (3.7.5):
-    - Realm/Headers (= 3.7.5)
-  - Realm/Headers (3.7.5)
-  - RealmSwift (3.7.5):
-    - Realm (= 3.7.5)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
-  - RealmSwift
   - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Realm
-    - RealmSwift
     - SVProgressHUD
 
 EXTERNAL SOURCES:
@@ -31,10 +23,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
-  RealmSwift: 2a9281e37d6de55f66f76254d49d28aeb1b729e4
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: ee123f66b71e48c1c04dd058de8a5db48350aabf
+PODFILE CHECKSUM: 8c3e66bff44f28fb1f35c1f11f18c220a8e14844
 
 COCOAPODS: 1.5.3
